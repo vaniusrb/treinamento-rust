@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hello word - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html" class="active"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="criar-e-executar-projeto"><a class="header" href="#criar-e-executar-projeto">Criar e executar projeto</a></h1>
+<p><code>Cargo</code> é o gerenciador de projetos do Rust. É o equivalente ao Maven do Java.
+Usamos ele para criar projeto, compilar, executar, etc.</p>
+<p>Para criar projeto:</p>
+<pre><code class="language-terminal">cargo new treinamento-rust
+</code></pre>
+<p>Será criado um diretório <code>treinamento-rust</code>. Vamos entrar nele:</p>
+<pre><code class="language-terminal">cd treinamento-rust
+</code></pre>
+<p>Esta é a estrutura de diretório quem contém o projeto:</p>
+<pre><code class="language-terminal">treinamento-rust/
+|
+|-src/
+|   |
+|    `-main.rs
+|
+|-.gitignore
+|
+`-Cargo.toml
+</code></pre>
+<p>O arquivo <code>Cargo.toml</code> contém configurações do projeto, principalmente dependências.</p>
+<p>Por padrão Rust vem com uma biblioteca nativa bem enxuta, então é comum adicionarmos dependências.
+Outro motivo de ter algumas bibliotecas desacopladas do compilador é que podemos ficar com uma versão estável do compilador e pode atualizar as bibliotecas de forma independente.</p>
+<p>O arquivo <code>src/main.rs</code> contém o código fonte principal, com um &quot;Hello World&quot;:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p>Para executar o programa:</p>
+<pre><code class="language-terminal">cargo run
+</code></pre>
+<p>Aparecerá como resultado:</p>
+<pre><code class="language-terminal">   Compiling treinamento-rust v0.1.0 (C:\Users\Vanius\Documents\rust\treinamento-rust)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.57s
+     Running `target\debug\treinamento-rust.exe`
+Hello, world!
+</code></pre>
+<p>O compilador algumas informações da compilação e por fim o resultado do programa com a frase <code>Hello, world!</code></p>
+<p>Podemos executar o programa para exibir somente o resultado, através de :</p>
+<pre><code class="language-terminal">cargo run -q
+</code></pre>
+<p>Para compilar o programa devemos fazer:</p>
+<pre><code class="language-terminal">cargo build
+</code></pre>
+<p>Esse comando gera o binário executável dentro do diretório <code>target/debug/</code></p>
+<p>Para compilar o programa e gerar o binário otimizado final (bem mais rápido):</p>
+<pre><code class="language-terminal">cargo build --release
+</code></pre>
+<p>Para executar testes unitários:</p>
+<pre><code class="language-terminal">cargo test
+</code></pre>
+<h2 id="hello-world"><a class="header" href="#hello-world">Hello, world!</a></h2>
+<p>Como vimos no capítulo anterior, criamos o arquivo <code>src/main.rs</code>, que contém o &quot;Hello, world!&quot;:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p>Nesse exemplo já vemos algumas características do Rust, que é muito comum a outras linguagens conhecidas.</p>
+<p>O prefixo <code>fn</code> define o uma função, que é um bloco que contém um conjunto de comandos.</p>
+<p>As funções permitem parâmetros através de parênteses <code>()</code>. Quando não possui parâmetros deve informá-los igualmente.</p>
+<p>Chaves <code>{}</code> são delimitadores de blocos.</p>
+<p>Todo comando termina com ponto-e-vírgula <code>;</code>.</p>
+<p>Aspas duplas <code>&quot;&quot;</code> delimitam String.</p>
+<p>O comando <code>println!</code> exibe a String na tela.</p>
+<p>O sinal de exclamação <code>!</code> significa que o comando é uma &quot;macro&quot;, que é um recurso de &quot;meta programação&quot; do Rust. As macros são comandos que são expandidos em tempo de compilação, como se fosse um pré-compilador embutido na linguagem. O interessante desse mecanismo é que funciona como um comando real para o programador.</p>
+<h2 id="executar-programa"><a class="header" href="#executar-programa">Executar programa</a></h2>
+<p>Como falamos anteriormente podemos executar o programa pela linha de comando <code>cargo run</code>.</p>
+<p>O <em>language server</em> do Rust permite o recurso de executar o programa de dentro do editor VSCode.
+Se tudo estiver certo acima do <code>main</code> deve ter um ícone para executar e outro para debugar.</p>
+<h3 id="instalação-de-programa"><a class="header" href="#instalação-de-programa">Instalação de programa</a></h3>
+<p>Quando instalamos o Rust ele insere no <code>PATH</code> o diretório <code>%USERPROFILE%\\.cargo\\bin</code> (ou <code>C:\\Users\\%USERNAME%\\.cargo\\bin</code>).</p>
+<p>Nesse diretório também serve para conter os programas que querermos que seja acessível de qualquer diretório.</p>
+<p>Para que o nosso programa seja compilado e o executável seja copiado para lá deve executar o comando:</p>
+<pre><code class="language-terminal">cargo install --path .
+</code></pre>
+<h2 id="convenção-de-nomes"><a class="header" href="#convenção-de-nomes">Convenção de nomes</a></h2>
+<p>Variáveis, funções, módulos, métodos devem ter formato <code>snake_case</code>.</p>
+<p>Constantes e variáveis estáticas devem ter formato <code>SCREAMING_SNAKE_CASE</code>.</p>
+<p>Classes, tipo, enumerados devem ter formato <code>CamelCase</code>.</p>
+<p>Mais detalhes em: <a href="https://doc.rust-lang.org/1.0.0/style/style/naming/README.html">Convenção de nomes padrão</a></p>
+<h2 id="padrões-de-comentários"><a class="header" href="#padrões-de-comentários">Padrões de comentários</a></h2>
+<p>Para definir comentário é bastante semelhante a outras linguagens.</p>
+<p>Comentário de linha <code>//</code></p>
+<p>Comentário de bloco <code>/* */</code></p>
+<p>Comentário para documento <code>///</code></p>
+<p>Mais detalhes em: <a href="https://doc.rust-lang.org/reference/comments.html">Padrões de comentários</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="introdução.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="tipos_de_variáveis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="introdução.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="tipos_de_variáveis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

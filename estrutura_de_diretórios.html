@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Estrutura de diretórios - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html" class="active"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="estrutura-de-diretórios-do-rust"><a class="header" href="#estrutura-de-diretórios-do-rust">Estrutura de diretórios do Rust</a></h2>
+<p>Em Rust, chamamos de itens as declarações de um fonte: funções, <em>structs</em>, <em>enums</em>, <em>traits</em> (interfaces), etc.
+Podemos agrupar os itens em <em>modules</em> (módulos), que lembra o conceito de pacotes de outras linguagens.
+Porém é um pouco diferente do Java, que, por exemplo, cada pacote é obrigatoriamente um diretório.</p>
+<blockquote>
+<p>Em Rust é possível declarar mais de um módulo num mesmo fonte, ou o contrário, diferentes fontes compor um único módulo.
+<strong>Porém para simplificar nós iremos trabalhar semelhante como no Java, onde cada módulo será um diretório.</strong></p>
+</blockquote>
+<h2 id="separar-itens-em-diferente-fonte"><a class="header" href="#separar-itens-em-diferente-fonte">Separar itens em diferente fonte</a></h2>
+<p>O arquivo <code>main.rs</code>, além de conter a função de entrada <code>main</code>, também serve para declarar outros <em>modules</em> que estarão contido dentro do nível <code>src</code>.
+Vamos supor que queremos isolar a declaração de objetos <code>Application</code> e <code>Config</code> em fontes separados.
+E criar os arquivos <code>application.rs</code>, <code>config.rs</code> dentro do diretório <code>src</code>, com os respectivos fontes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Application {
+    pub version: String,
+}
+
+pub struct Config {
+    pub debug: bool,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A estrutura de diretórios ficará assim:</p>
+<pre><code>src/
+    application.rs *
+    config.rs *
+    main.src
+
+* arquivos novos
+</code></pre>
+<p>Só o fato de haver arquivos <code>.rs</code> no <code>src</code> não os tornam visíveis, é necessário declará-los como módulos.
+Para isso devemos declaras as seguintes linhas no <strong>topo</strong> do <code>main.rs</code> através das palavras <code>pub mod</code>:</p>
+<pre><pre class="playground"><code class="language-rust">pub mod application;
+pub mod config;
+
+fn main() {
+
+}
+</code></pre></pre>
+<p>Apesar de declarar os módulos no <code>main.rs</code>, para acessar esses objetos devemos fazer o <em>import</em> abaixo dos <em>mods</em>. Ficará assim:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod application;
+pub mod config;
+
+use config::Config;
+use application::Application;
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Observe que existe um <code>::</code> para delimitar o pacote e a classe.
+Diferente de Java, num fonte podemos declarar várias classes públicas.
+Então devemos imaginar <code>config::Config;</code> funcionando como: <code>&lt;config.rs&gt;::Struct Config;</code></p>
+</blockquote>
+<p>Pronto, agora podemos usar as classes na função <code>main</code>:</p>
+<pre><pre class="playground"><code class="language-rust">pub mod application;
+pub mod config;
+
+use config::Config;
+use application::Application;
+
+fn main() {
+    let application = Application {
+        version: &quot;20.20a&quot;.to_string(),
+    };
+}
+</code></pre></pre>
+<h2 id="visibilidade-de-itens"><a class="header" href="#visibilidade-de-itens">Visibilidade de itens</a></h2>
+<p>Perceba a palavra <code>pub</code> que utilizamos no exemplo acima na declaração do <code>struct</code> e nos campos. O <code>pub</code> torna visível para itens de outros <em>modules</em>.
+Por padrão os itens são visível somente para outros itens do mesmo <code>module</code>. Podemos usar o <code>pub</code> em todos itens (funções, enum, etc).
+O <code>mod</code> também permite visibilidade &quot;privada&quot; (sem o pub), nesse caso estará visível para o seu nível e níveis filhos.
+Por padrão vamos declarar o módulo sempre com <code>pub</code>.</p>
+<h2 id="criando-subdiretórios"><a class="header" href="#criando-subdiretórios">Criando subdiretórios</a></h2>
+<p>Os pacotes <code>application</code> e <code>config</code> então no mesmo nível (diretório) de <code>main</code>.</p>
+<p>Agora vamos criar um novo diretório <code>model</code>. A estrutura ficará assim:</p>
+<pre><code>src/
+    model/ *
+    application.rs
+    config.rs
+    main.src
+
+* diretório novo
+</code></pre>
+<p>E semelhante como fizemos antes com os arquivos novo, no <code>main.rs</code> temos que declarar o diretório <code>entity</code> com <code>mod</code>.
+Ficará assim:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod model; // &lt;- diretório que estamos declarando
+pub mod application;
+pub mod config;
+...
+<span class="boring">}
+</span></code></pre></pre>
+<p>Então agora vamos criar os arquivos <code>user.rs</code>, <code>group.rs</code> e <code>rule.rs</code> dentro do diretório <code>model</code>.</p>
+<p>Em cada fonte vamos declarar seus <em>structs</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct User {
+    pub id: u32,
+    pub name: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Group {
+    pub id: u32,
+    pub name: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Rule {
+    pub id: u32,
+    pub name: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A estrutura ficará assim:</p>
+<pre><code>src/
+    model/
+        user.rs *
+        group.rs *
+        rule.rs *
+    application.rs
+    config.rs
+    main.src
+
+* arquivos novos
+</code></pre>
+<p>Semelhante como no os fontes <code>application.rs</code> e <code>config.rs</code> devemos declarar o módulo com <code>mod</code>.
+Mas nesse caso os fontes não então na raiz <code>src</code> e sim dentro do <code>model</code>.
+Nesse caso o diretório deve conter um arquivo chamado <code>mod.rs</code>. A estrutura ficará assim:</p>
+<pre><code>src/
+    model/
+        group.rs
+        mod.rs *
+        rule.rs
+        user.rs
+    application.rs
+    config.rs
+    main.src
+
+* arquivo novo
+</code></pre>
+<p>E no arquivo <code>mod.rs</code> deve conter a declaração de cada fonte deste subdiretório:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod user;
+pub mod group;
+pub mod rule;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Se fossemos criar um diretório <code>model/commons/</code> então <code>commons</code> teria que ser declarado dentro do <code>mod.rs</code> do <code>model</code>,
+e assim recursivamente.</p>
+<h2 id="recapitulando-declaração-de-módulos"><a class="header" href="#recapitulando-declaração-de-módulos">Recapitulando declaração de módulos</a></h2>
+<ul>
+<li>Arquivos fontes e diretórios devem ser declarados com <code>pub mod</code>.</li>
+<li>Esses <code>pub mod</code> devem estar no <code>main.rs</code> (quando arquivos/diretórios na raiz <code>src</code>) ou no arquivo <code>mod.rs</code> contido no diretório.</li>
+<li>Cada sub nível de diretório terá o seu próprio <code>mod.rs</code>.</li>
+<li>Se for criar um diretório</li>
+</ul>
+<blockquote>
+<p>Pode parece ser trabalhoso, mas <em>language server</em> tem um facilitador para inserir o <code>pub mod</code> no arquivo necessário.
+No topo do fonte novo aparecerá a &quot;lámpada verde&quot; para fazer essa alteração para nós.
+Geralmente o único trabalho que temos é criar o arquivo <code>mod.rs</code> dentro de um diretório novo.</p>
+</blockquote>
+<h2 id="declarando-imports-com-via-relativa-ou-absoluta"><a class="header" href="#declarando-imports-com-via-relativa-ou-absoluta">Declarando <em>imports</em> com &quot;via relativa&quot; ou absoluta</a></h2>
+<p>É possível acessar os módulos com caminho de forma absoluta ou relativa.</p>
+<ul>
+<li><code>crate</code> Para acessar a raiz, tal como <code>/</code></li>
+<li><code>super</code> Para acessar o nível anterior, tal como <code>..</code></li>
+<li><code>self</code> Para acessar a partir do nível atual, tal como <code>.</code></li>
+</ul>
+<p>Exemplos:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::application::Application;
+use super::application::Application;
+use self::application::Application;
+<span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="closures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="clonar_structs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="closures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="clonar_structs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

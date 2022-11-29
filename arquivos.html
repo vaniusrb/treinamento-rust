@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Leitura e gravação de arquivos - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html" class="active"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="leitura-e-gravação-de-arquivos"><a class="header" href="#leitura-e-gravação-de-arquivos">Leitura e gravação de arquivos</a></h1>
+<h2 id="objetos-path-e-pathbuf"><a class="header" href="#objetos-path-e-pathbuf">Objetos <code>Path</code> e <code>PathBuf</code></a></h2>
+<p>Em Rust existe o objeto <code>PathBuf</code>, semelhante como em Java existe o objeto <code>File</code> (ou <code>Path</code> na API mais moderna).
+Esse tipo de objeto tem como objetivo representar um arquivo, não necessariamente o seu conteúdo.</p>
+<p>Além do <code>PathBuf</code> existe o <code>Path</code>. A diferença entre os dois é semelhante como em outras estruturas
+dinâmicas que possuem sua versão &quot;<em>slice</em>&quot; (referência que pode representar um objeto na <em>stack</em> ou <em>heap</em>) e a versão &quot;<em>owned</em>&quot;.</p>
+<p><code>Path</code> é a versão de referência e <code>PathBuf</code> é a sua versão <em>owned</em>.</p>
+<p>Podemos montar uma tabela para fazermos uma associação mental:</p>
+<table><thead><tr><th>Reference</th><th>Owned</th></tr></thead><tbody>
+<tr><td><code>&amp;str</code></td><td><code>String</code></td></tr>
+<tr><td><code>&amp;[]</code></td><td><code>Vec</code></td></tr>
+<tr><td><code>Path</code></td><td><code>PathBuf</code></td></tr>
+</tbody></table>
+<p>Isso significa que <code>PathBuf</code> pode ser mutável e podemos declarar campos com esse tipo.
+<code>Path</code> por sua vez é uma referência, devemos usar ele quando funciona como uma literal
+&quot;constante&quot; ou quando representa o parâmetro de uma função.</p>
+<blockquote>
+<p>Significa que o tipo que mais iremos trabalhar é o <code>PathBuf</code>.</p>
+</blockquote>
+<p>Podemos converter um para outro. O <code>Path</code> possui o método <code>to_path_buf()</code> e o <code>PathBuf</code>
+possui o método <code>as_path()</code>.</p>
+<p>Para usar esses tipos devemos fazer um dos <em>imports</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::path::Path;
+use std::path::PathBuf;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para criar um objeto <code>Path</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let path = Path::new(&quot;foo.txt&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para criar um objeto <code>PathBuf</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let path = PathBuf::from(&quot;foo.txt&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="tipos-osstr-e-osstring"><a class="header" href="#tipos-osstr-e-osstring">Tipos <code>OsStr</code> e <code>OsString</code></a></h2>
+<p>Rust é bastante rigoroso sobre a questão de acesso a <em>strings</em> do sistema operacional,
+principalmente para acesso via API (que indiretamente acesso dos arquivos utilizam).
+Em Linux, por exemplo, <em>strings</em> possuem encoding UTF-8 enquanto no Windows é UTF-16 (dois bytes).</p>
+<p>Nem todos caracteres válidos de <em>string</em> do sistema operacial são caracteres válidos do tipo <code>String</code>.
+Então devido a essa questão existem tipos específicos para representar <em>strings</em> do sistema operaiconal: <code>OsStr</code> (<em>reference</em>) e <code>OsString</code> (<em>owned</em>).</p>
+<blockquote>
+<p>Uma <code>String</code> pode ser convertida para <code>OsString</code>, mas o contrário nem sempre é possível.</p>
+</blockquote>
+<p>Podemos fazer a conversão para <code>String</code> com o método <code>to_string_lossy</code>,
+que ignora qualquer incompatibilidade de caracteres. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let path = PathBuf::from(&quot;foo.txt&quot;);
+assert_eq!(path.to_string_lossy(), &quot;foo.txt&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Dificilmente iremos declarar uma variável como <code>OsString</code>, geralmente trabalharemos com os tipo <code>String</code> e <code>&amp;str</code>.</p>
+</blockquote>
+<p>Muitas funções permitem passar parâmetros como <code>OsString</code>, <code>String</code> e <code>PathBuf</code> de forma transparente.</p>
+<h2 id="formato-de-barras"><a class="header" href="#formato-de-barras">Formato de barras</a></h2>
+<p>Sobre o formato de barras de separador de diretório, Rust funciona semelhante como no Java e Ruby,
+no sentido que podemos trabalhar com barras Unix <code>/</code> mesmo quando executando em Windows.
+Porém o contrário não é verdadeiro, se usarmos barra Windows <code>\</code> no Linux não funciona.
+Então podemos considerar que usar barras Unix é o mais conveniente.</p>
+<p>Vale lembrar que podemos usar <em>raw string</em> para criar arquivos com contra barras.
+Por exemplo, isso:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>PathBuf::from(&quot;C:\\TEMP\\arquivo.txt&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Pode ser representado como:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>PathBuf::from(r&quot;C:\TEMP\arquivo.txt&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="funções-do-pathbuf"><a class="header" href="#funções-do-pathbuf">Funções do <code>PathBuf</code></a></h2>
+<p>Em geral <code>PathBuf</code> serve para representar um arquivo ou diretório.</p>
+<p>Podemos verificar se o arquivo existe pelo método <code>exists()</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>assert!(!PathBuf::from(&quot;does_not_exist.txt&quot;).exists());
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para verificar se é diretório ou arquivo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>assert_eq!(PathBuf::from(&quot;./is_a_directory/&quot;).is_dir(), true);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Depois veremos como obter mais metadados dos arquivos.</p>
+<p>O objeto <code>PathBuf</code> permite manipular partes da via.</p>
+<p>Por exemplo, concatenar partes de diretórios e arquivos com <code>join</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>assert_eq!(PathBuf::from(&quot;/etc&quot;).join(&quot;passwd&quot;), PathBuf::from(&quot;/etc/passwd&quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Obter a extensão do arquivo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>assert_eq!(&quot;rs&quot;, PathBuf::from(&quot;foo.rs&quot;).extension().unwrap());
+<span class="boring">}
+</span></code></pre></pre>
+<p>Obter o diretório pai do arquivo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let path = PathBuf::from(&quot;/foo/bar&quot;);
+let parent = path.parent().unwrap();
+assert_eq!(parent, Path::new(&quot;/foo&quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Obter o nome do arquivo do arquivo (última parte):</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>assert_eq!(Some(OsStr::new(&quot;bin&quot;)), PathBuf::from(&quot;/usr/bin/&quot;).file_name());
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="operações-com-arquivos"><a class="header" href="#operações-com-arquivos">Operações com arquivos</a></h2>
+<p>Para fazer operações com arquivos devemos usar as funções do pacote com <code>use std::fs</code>.</p>
+<p>Deletar arquivo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fs::remove_file(&quot;a.txt&quot;).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Copiar arquivo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fs::copy(&quot;foo.txt&quot;, &quot;bar.txt&quot;).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Mover/renomear arquivo</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fs::rename(&quot;a.txt&quot;, &quot;b.txt&quot;).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="informações-de-arquivos-metadados"><a class="header" href="#informações-de-arquivos-metadados">Informações de arquivos (metadados)</a></h2>
+<p>Para acessarmos informações de arquivos (tamanho, data/hora, etc) podemos acessar o objeto de metadados:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let metadata = fs::metadata(&quot;foo.txt&quot;).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Exemplo para acessar data de modificação:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if let Ok(time) = metadata.modified() {
+    println!(&quot;{:?}&quot;, time);
+} else {
+    println!(&quot;Not supported on this platform&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Além da data de modificação <code>modified</code>, existe a função para data de último acesso <code>accessed</code> e data de criação <code>created</code>.</p>
+<p>Para obter o tamanho do arquivo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let file_size = fs::metadata(&quot;some_file&quot;).unwrap().size();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para verificar se arquivo é <em>read only</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let is_readonly = fs::metadata(&quot;foo.txt&quot;).unwrap().permissions().readonly();
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="ler-e-gravar-conteúdo-de-arquivo"><a class="header" href="#ler-e-gravar-conteúdo-de-arquivo">Ler e gravar conteúdo de arquivo</a></h2>
+<p>Foram criadas rotinas utilitárias para manipular arquivos na Rech. Um dos motivos para termos as nossas próprias rotinas foi simplificar o uso e adaptar para nossas necessidades. Por exemplo, a rotina de leitura de txt possui inteligência para detectar automaticamente o encoding UTF-8 ou Windows-1252.</p>
+<p>Mais detalhes em:
+<a href="http://gitlab.rechinfo.local/gitlab/rech/rust/ri-lib-file-utils">http://gitlab.rechinfo.local/gitlab/rech/rust/ri-lib-file-utils</a></p>
+<p>Devemos inserir a dependência:</p>
+<pre><code class="language-ini">[dependencies]
+ri-lib-file-utils = {git = &quot;http://gitlab.rechinfo.local/gitlab/rech/rust/ri-lib-file-utils.git&quot;}
+</code></pre>
+<p>Rust possui um recurso legal que podemos aplicar <em>traits</em> (interfaces) para tipos nativos.
+Então podemos adicionar métodos de leitura e gravação ao tipo <code>PathBuf</code>.</p>
+<p>Exemplo de como ler conteúdo de arquivo txt com o método <code>reader</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use ri_lib_file_utils::file_reader::PathReader;
+let content = PathBuf::from(&quot;arquivo.txt&quot;).reader().load_str().unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Exemplo de como ler gravar de arquivo txt com o método <code>writer</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use ri_lib_file_utils::file_writer::PathWriter;
+PathBuf::from(&quot;arquivo.txt&quot;).writer().write(&quot;conteúdo teste&quot;).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="exercícios"><a class="header" href="#exercícios">Exercícios</a></h2>
+<p>Vamos adaptar o nosso programa de venda para persistir dados, ou seja, ler e gravar.
+O objeto <code>ProdutoRepository</code>, por exemplo, poderá carregar a lista de produtos na sua criação.
+Quando for usado o método <code>save()</code> pode gravar a lista de produtos atualizados.</p>
+<p>Para isso pode usar os métodos <code>serde_json::from_str</code> e <code>serde_json::to_string</code>,
+em conjunto com as funções de ler e gravar arquivo acima.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="manipular_json.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="date_time.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="manipular_json.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="date_time.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

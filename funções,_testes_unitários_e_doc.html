@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Funções, testes unitários e doc - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html" class="active"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="declarar-funções"><a class="header" href="#declarar-funções">Declarar funções</a></h3>
+<p>Para declarar funções e executá-las fazemos semelhante a outras linguagens:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+
+    another_function();
+}
+
+fn another_function() {
+    println!(&quot;Another function.&quot;);
+}
+</code></pre></pre>
+<h3 id="passagem-de-parâmetros"><a class="header" href="#passagem-de-parâmetros">Passagem de parâmetros</a></h3>
+<p>Passar parâmetros também é familiar:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    another_function(5, 6);
+}
+
+fn another_function(x: i32, y: i32) {
+    println!(&quot;The value of x is: {}&quot;, x);
+    println!(&quot;The value of y is: {}&quot;, y);
+}
+</code></pre></pre>
+<h3 id="todo-bloco-pode-ser-uma-expressão"><a class="header" href="#todo-bloco-pode-ser-uma-expressão">Todo bloco pode ser uma expressão</a></h3>
+<p>Rust possui uma interessante característica do paradigma funcional que todo bloco pode funcionar como uma expressão,
+ou seja, pode retornar um valor.
+Para indicar um retorno basta a última linha não conter <code>;</code>. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let v = {
+    let a = 1;
+    let b = 2;
+    a + b
+};
+println!(&quot;from block: {}&quot;, v);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Vale observar que esse tipo de sintaxe a linguagem Java implementou superficialmente, apenas funciona em <em>lambdas</em>, tal como <code>.filter(emp -&gt; emp.age &lt; age)</code>.</p>
+<p>Este recurso pode ser usado no controle de fluxo de outras operações que veremos em outro capítulo.</p>
+<h3 id="função-com-retorno"><a class="header" href="#função-com-retorno">Função com retorno</a></h3>
+<p>Para declarar uma função indicamos o tipo de retorno por <code>-&gt;</code> e seguimos a lógica da última linha não ter <code>;</code>:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = five();
+    println!(&quot;The value of x is: {}&quot;, x);
+}
+
+fn five() -&gt; i32 {
+    5
+}
+</code></pre></pre>
+<p>Também podemos retornar o valor de função a partir do comando <code>return</code>, nesse caso colocamos o <code>;</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 10;
+
+    println!(&quot;a = {}&quot;, foo(a));
+}
+
+fn foo(a: i8) -&gt; i8 {
+    if a &gt; 0 {
+        return 5;
+    };
+    a + 1
+}
+</code></pre></pre>
+<h3 id="atributos-de-itens"><a class="header" href="#atributos-de-itens">Atributos de itens</a></h3>
+<p>Os itens (funções, <em>enums</em>, <em>structs</em>, etc) podem ter definido <em>attributes</em>,
+onde associa um meta-dado ou altera o comportamento. Possui o formato <code>#[Attr]</code> ou <code>#![Attr]</code>.
+Funcionam parecido como as <em>annotations</em> do Java.</p>
+<p>Vamos ver um exemplo para condicionar funções por compilação da plataforma:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(target_os = &quot;windows&quot;)]
+fn list_mapped_drive() {
+}
+
+#[cfg(not(target_os = &quot;linux&quot;))]
+fn distro_linux() {
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esse atributo acima também pode ser definido em bloco de código.</p>
+<h3 id="função-de-teste"><a class="header" href="#função-de-teste">Função de teste</a></h3>
+<p>Criar funções de testes unitários em Rust é bem prático.
+Por padrão as funções de testes são declaradas ao fim no mesmo fonte.
+Isso facilita pois não precisamos ficar alternando entre vários fontes.</p>
+<p>Para definir função de teste unitários basta declarar o atributo <code>#[test]</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn test() {
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A extensão do VSCode deve exibir um ícone de <em>play</em> acima da função.</p>
+<p>Essa forma de atribuição por <code>#[xxx]</code></p>
+<p>Observe que o <em>language server</em> do Rust disponibilizou um <em>play</em> para executar a função de teste.
+Esse recurso é muito prático enquanto estamos prototificando uma rotina, pois podemos declarar
+a função de testar para executar a nossa função no mesmo fonte.</p>
+<h3 id="funções-de-assertação"><a class="header" href="#funções-de-assertação">Funções de assertação:</a></h3>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>assert!(true);
+let a = 1;
+let b = 1;
+let c = 2;
+assert_eq!(a, b);
+assert_ne!(a, c);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="definir-pacote-de-teste"><a class="header" href="#definir-pacote-de-teste">Definir pacote de teste</a></h3>
+<p>O ideal é isolar as funções de testes em um módulo, que pode ser declarado ao final do código fonte:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A linha <code>use super::*</code> serve par tornar as funções do fonte visíveis para o módulo de teste.</p>
+<p>Para executar os testes devemos rodar o comando do cargo:</p>
+<pre><code class="language-terminal">cargo test
+</code></pre>
+<h3 id="criar-lib-biblioteca"><a class="header" href="#criar-lib-biblioteca">Criar lib (biblioteca)</a></h3>
+<p>As <em>libs</em> são projetos que não geram executável, que podem declarar itens para serem reaproveitados em outros projetos.</p>
+<p>Vamos criar uma <em>lib</em> chamada `my-lib para usarmos no nosso projeto, onde temos que criá-lo no mesmo diretório:</p>
+<pre><code class="language-terminal">cd ..
+cargo new my-lib --lib
+cd my-lib
+code .
+</code></pre>
+<p>A principal diferença é que ao invés do <code>main.rs</code> tempos o <code>lib.rs</code>.</p>
+<p>Nesse fonte iremos definir as nossas funções. Para os itens serem visíveis externamente temos que definir o prefixo <code>pub</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn double(num: i32) -&gt; i32 {
+    num * 2
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>No nosso projeto podemos incluir a dependência com via relativa de diretório:</p>
+<pre><code class="language-toml">[dependencies]
+my-lib = { path = &quot;../my-lib&quot; }
+</code></pre>
+<p>No fonte, devemos fazer o <em>import</em> com <code>use</code>, onde definimos o nome da <em>lib</em> e o nome da função que queremos importar.
+Observe que no nome da <em>lib</em> ao invés de <code>-</code> (hífen) devemos trocar por <code>_</code> (underline) e que usamos delimitador de
+pacote e função com <code>::</code>:</p>
+<pre><pre class="playground"><code class="language-rust">use my_lib::double;
+fn main() {
+    let d = double(1);
+    println!(&quot;{}&quot;, d);
+}
+</code></pre></pre>
+<h3 id="documentação"><a class="header" href="#documentação">Documentação</a></h3>
+<p>No itens de Rust (funções, struct, enuns, etc) podemos definir comentários no código fonte que resultarão em documentos.
+Para isso devemos definir comentário com três barras <code>///</code></p>
+<p>Para criar um trecho com código Rust devemos declarar um bloco com <code>```rust</code> e terminar com <code>```</code></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Retorna o dobro
+/// Exemplo:
+/// ```rust
+/// use my_lib::double;
+/// assert_eq!(double(1u32), 2u32);
+/// ```
+pub fn double(num: u32) -&gt; u32 {
+    num * 2
+}
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Observe que o código declarado na documentação pode ser executado, não é apenas um texto ilustrativo.
+Isso garante que a documentação estará sempre condizente com a implementação.
+E outra coisa bastante interessante, esse código é executado com o <code>cargo test</code>, ou seja,
+esse código funciona como documentação e teste unitário, evitando duplicidade.</p>
+</blockquote>
+<p>A documentação com código executável funciona apenas para <em>libs</em>,
+mas está sendo estudado para funcionar em projetos executáveis também.</p>
+<p>Para gerar o documento:</p>
+<pre><code>cargo doc
+</code></pre>
+<p>Os documentos html serão gerados no diretório <code>target/doc</code>.</p>
+<p>Para gerar o documento e abrir o navegador devemos executar:</p>
+<pre><code>cargo doc --open
+</code></pre>
+<p>Existe também o comando <code>rustdoc</code> para gerar doc de um arquivo avulso.
+Por exemplo, para gerar o <code>docs/doc/README.html</code> a partir do <code>README.md</code></p>
+<pre><code>rustdoc README.md
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="trabalhando_com_strings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="controle_de_fluxo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="trabalhando_com_strings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="controle_de_fluxo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

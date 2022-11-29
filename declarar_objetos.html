@@ -1,0 +1,496 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Declarar objetos - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html" class="active"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="rust-e-a-orientação-a-objetos"><a class="header" href="#rust-e-a-orientação-a-objetos">Rust e a Orientação a Objetos</a></h2>
+<p>Existe uma discussão comum se Rust é orientado a objetos.</p>
+<p>Antes de chegarmos a uma conclusão vamos revisar os principais princípios da programação Orientada a Objetos:</p>
+<ul>
+<li>
+<p>Abstração</p>
+<ul>
+<li>Permitir um conjunto de propriedades e métodos funcionar sobre uma identidade</li>
+<li>Essa identidade poder ser reutilizada (objeto) através uma prototipação (classe)</li>
+</ul>
+</li>
+<li>
+<p>Encapsulamento</p>
+<ul>
+<li>Indicar quais propriedades e métodos deseja tornar público</li>
+</ul>
+</li>
+<li>
+<p>Polimorfismo</p>
+<ul>
+<li>Generalizar objetos de diferentes implementações (classes)</li>
+</ul>
+</li>
+<li>
+<p>Herança</p>
+<ul>
+<li>Expandir subtipo de uma classe para outras em forma hierárquica, reaproveitando propriedades e métodos</li>
+</ul>
+</li>
+</ul>
+<p>Rust possui todas as características acima, exceto herança. Mas hoje em dia herança é considerado um <em>anti-pattern</em> que deve ser evitado. Ou seja, então teoricamente programar em Rust não fica muito distinto de um programa Java que segue as boas práticas de programação.</p>
+<h2 id="boas-práticas-sobre-oo"><a class="header" href="#boas-práticas-sobre-oo">Boas práticas sobre OO</a></h2>
+<p>Em geral a OO antiga diz que estado faz parte do objeto, onde seria um atributo.
+Mas muitas vezes devem ser tratados como objetos distintos.</p>
+<blockquote>
+<p>A Orientação a Objetos tradicionalmente prega que objetos representam coisas.
+Mas na verdade objetos <strong>operam</strong> sobre <strong>coisas</strong>.</p>
+</blockquote>
+<p>Ou seja:</p>
+<blockquote>
+<p>Operar =&gt; comportamento
+Coisa =&gt; possui estado</p>
+</blockquote>
+<p>Podemos resumir esse tipo de pensamento da seguinte forma:</p>
+<pre><code>objeto.operacao(estado)
+
+estado = objeto.operacao()
+</code></pre>
+<p><em>objeto</em> é uma classe que dita comportamentos sobre outra classe de <em>estado</em>.</p>
+<p>Ter essa distinção em mente nos ajuda a evitar de haver uso excessivo de mutabilidade (quando fazemos <code>set</code>).</p>
+<h2 id="declarar-e-instanciar-objetos"><a class="header" href="#declarar-e-instanciar-objetos">Declarar e instanciar objetos</a></h2>
+<p>Para declarar objetos em Rust usamos a sintaxe <code>struct</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct User {
+    id: u32,
+    name: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Os campos são delimitados por vírgula <code>,</code>.</p>
+<p>Para instanciar um objeto é usada uma sintaxe muito parecida com <em>Javascript</em>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct User {
+</span><span class="boring">    id: u32,
+</span><span class="boring">    name: String,
+</span><span class="boring">}
+</span>fn main() {
+    let user = User {
+        id: 19,
+        name: String::from(&quot;Vanius&quot;),
+    };
+    println!(&quot;User: {} {}&quot;, user.id, user.name);
+}
+</code></pre></pre>
+<p>Observe que ao instanciar um objeto devemos informar o valor de todos os campos declarados.
+Isso garante que nunca teremos um campo não inicializado.
+Em outro capítulo iremos abordar como permitir um campo opcional.</p>
+<h2 id="destruturar-struct-e-campos-restantes"><a class="header" href="#destruturar-struct-e-campos-restantes">Destruturar <em>struct</em> e &quot;campos restantes&quot;</a></h2>
+<p>Podemos destruturar um <em>struct</em> em várias variáveis em uma única linha, semelhante como fazemos com tuplas.</p>
+<pre><pre class="playground"><code class="language-rust">struct ThreeDPoint {
+    x: f32,
+    y: f32,
+    z: f32
+}
+
+fn main() {
+    let point_a: ThreeDPoint = ThreeDPoint { x: 0.3, y: 0.4, z: 0.5 };
+    // É útil para obter vários campos em um única linha
+    let ThreeDPoint { x: my_x, y: my_y, .. } = point_a;
+
+    println!(&quot;x:{} y:{}&quot;, my_x, my_y);
+}
+</code></pre></pre>
+<p>Quando queremos atribuir a partir de outro <em>struct</em> de mesmo tipo podemos usar dois pontos <code>..</code>
+para pegar os restantes dos campos.</p>
+<p>Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">struct ThreeDPoint {
+    x: f32,
+    y: f32,
+    z: f32
+}
+
+fn main() {
+    let point_a: ThreeDPoint = ThreeDPoint { x: 0.3, y: 0.4, z: 0.5 };
+
+    // É útil quando queremos obter os campos restantes
+    let point_b = ThreeDPoint { z: 0.5, ..point_a };
+
+    println!(&quot;x:{} y:{} z:{}&quot;, point_b.x, point_b.y, point_b.z);
+}
+</code></pre></pre>
+<h2 id="declarar-função-que-retorna-objeto"><a class="header" href="#declarar-função-que-retorna-objeto">Declarar função que retorna objeto</a></h2>
+<p>Podemos criar uma função para retornar um objeto:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct User {
+</span><span class="boring">    id: u32,
+</span><span class="boring">    name: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn build_user(id: u32, name: String) -&gt; User {
+    User {
+        id: id,
+        name: name,
+    }
+}
+
+fn main() {
+    let user = build_user(19, String::from(&quot;Vanius&quot;));
+    println!(&quot;User: {} {}&quot;, user.id, user.name);
+}
+</code></pre></pre>
+<p>Se quisermos alterar o conteúdo temos que declarar como mutável:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct User {
+</span><span class="boring">    id: u32,
+</span><span class="boring">    name: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">fn build_user(id: u32, name: String) -&gt; User {
+</span><span class="boring">   User {
+</span><span class="boring">       id: id,
+</span><span class="boring">       name: name,
+</span><span class="boring">   }
+</span><span class="boring">}
+</span><span class="boring">fn main() {
+</span>    let mut user = build_user(19, String::from(&quot;Vanius&quot;));
+    user.name = String::from(&quot;Vanius&quot;);
+    println!(&quot;User: {} {}&quot;, user.id, user.name);
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="declarar-método-estático"><a class="header" href="#declarar-método-estático">Declarar método estático</a></h2>
+<p>Vamos supor que queremos tornar a função <code>build_user</code> como um construtor <code>new</code> do <em>struct</em>.
+Para isso definimos uma nova sessão chamada <code>impl</code>, informamos qual o <em>struct</em> estamos implementando e declaramos nossa função:</p>
+<pre><pre class="playground"><code class="language-rust">struct User {
+    id: u32,
+    name: String,
+}
+
+impl User {
+    fn new(id: u32, name: String) -&gt; User {
+        User {
+            id: id,
+            name: name,
+        }
+    }
+}
+
+fn main() {
+    let user = User::new(19, String::from(&quot;Vanius&quot;));
+    println!(&quot;User: {} {}&quot;, user.id, user.name);
+}
+</code></pre></pre>
+<p>Pode parecer estranho declarar funções num bloco separado das variáveis,
+mas depois quando formos aprender sobre <em>Traits</em> (interfaces) iremos ver que faz sentido.</p>
+<p>Perceba que <code>new</code> se transformou em uma função estática e
+que acessamos funções estáticas pelos caracteres <code>::</code>.</p>
+<p>Quando já estamos dentro do contexto do <em>struct</em> podemos acessar o seu nome pela palavra <code>Self</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct User {
+</span><span class="boring">   id: u32,
+</span><span class="boring">   name: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl User {
+    fn new(id: u32, name: String) -&gt; Self {
+        Self {
+            id: id,
+            name: name,
+        }
+    }
+}
+<span class="boring">fn main() {
+</span><span class="boring">    let user = User::new(19, String::from(&quot;Vanius&quot;));
+</span><span class="boring">    println!(&quot;User: {} {}&quot;, user.id, user.name);
+</span><span class="boring">}
+</span></code></pre></pre>
+<h3 id="declarar-método-dinâmico"><a class="header" href="#declarar-método-dinâmico">Declarar método dinâmico</a></h3>
+<p>Para declarar um método dinâmico do objeto, devemos informar o primeiro parâmetro na função com <code>&amp;self</code>.</p>
+<p>A partir da palavra <code>self</code> conseguimos acessar os campos do objeto de dentro do método,
+semelhante como <code>this</code> em Java. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct User {
+</span><span class="boring">   id: u32,
+</span><span class="boring">   name: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl User {
+    fn new(id: u32, name: String) -&gt; Self {
+        Self {
+            id: id,
+            name: name,
+        }
+    }
+
+    fn say_hello(&amp;self) {
+        println!(&quot;Hi, I'm {}&quot;, self.name);
+    }
+}
+
+fn main() {
+    let user = User::new(19, String::from(&quot;Vanius&quot;));
+    user.say_hello();
+}
+</code></pre></pre>
+<blockquote>
+<p>Podemos concluir que dentro do struct podemos acessar métodos estáticos com <code>Self::</code> e
+métodos dinâmicos com <code>self.</code>.</p>
+</blockquote>
+<h3 id="método-criando-getter-e-setter"><a class="header" href="#método-criando-getter-e-setter">Método criando <em>getter</em> e <em>setter</em></a></h3>
+<p>Em Rust os <em>getters</em> tem formato tal como <code>field(&amp;self) -&gt; T</code> e os <em>setters</em> formato <code>set_field(&amp;mut self, v: T)</code>. Para <em>getters</em> que retornam <em>bool</em> devemos usar <code>is_field(&amp;self) -&gt; bool</code>.</p>
+<p>Observe que no <code>setter</code> é utilizado <code>&amp;mut self</code> ao invés de <code>&amp;self</code>.
+Isso significa que o método <code>set_field</code> pode acessar os campos de forma mutável. Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct User {
+</span><span class="boring">   id: u32,
+</span><span class="boring">   name: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl User {
+    fn new(id: u32, name: String) -&gt; Self {
+        Self {
+            id: id,
+            name: name,
+        }
+    }
+
+    fn name(&amp;self) -&gt; String {
+        self.name
+    }
+
+    fn set_name(&amp;mut self, name: String) {
+        self.name = name;
+    }
+}
+
+fn main() {
+    // user_1 só permite ler campo, não é mutável
+    let user_1 = User::new(19, String::from(&quot;Vanius&quot;));
+    println!(&quot;user_1: {}&quot;, user_1.name());
+
+    // user_2 permite ler e gravar campo, pois é mutável
+    let mut user_2 = User::new(19, String::from(&quot;Vanius&quot;));
+    user_2.set_name(&quot;Roberto&quot;);
+    println!(&quot;user_2: {}&quot;, user_2.name());
+}
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="controle_de_fluxo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="enumerados.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="controle_de_fluxo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="enumerados.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

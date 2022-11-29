@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Manipulação JSON - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html" class="active"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="manipulação-json"><a class="header" href="#manipulação-json">Manipulação JSON</a></h1>
+<h2 id="dependência"><a class="header" href="#dependência">Dependência</a></h2>
+<p>Para manipular tipo de dados <em>json</em> usaremos a lib <code>serde</code> (<strong>ser</strong>ializer/<strong>de</strong>serializer).
+O <code>serde</code> permite serializar objetos para diversos formatos (json, toml, yaml, avro...),
+porém existem dependências separadas para cada formato. Por isso devemos adicionar as depdências <code>serde</code> (core) e <code>serde_json</code> (formato json) no arquivo <code>Cargo.toml</code>:</p>
+<pre><code>serde = {version = &quot;1.0&quot;, features = [&quot;derive&quot;]}
+serde_json = &quot;1.0&quot;
+</code></pre>
+<p>Observe que ao adicionar o <code>serde</code> usamos uma forma diferente, onde indicamos o <code>features</code>.
+Esta é uma forma para algumas bibliotecas permitirem dividir funcionalidades,
+para diminuir tempo de compilação e tamanho do executável.
+O recurso <code>derive</code> é para permitir definir atributo para serializar <em>structs</em>.</p>
+<h2 id="declarar-tipo-de-objsto-json"><a class="header" href="#declarar-tipo-de-objsto-json">Declarar tipo de objsto json</a></h2>
+<p>O <code>serde</code> possui a macro <code>json!</code> que permite definir um arquivo <em>json</em>
+exatamente do formato textual. Também é possível assumir valores a partir de variáveis e expressões:</p>
+<pre><pre class="playground"><code class="language-rust">use serde_json::json;
+
+fn main() {
+    {
+        let value = json!({
+            &quot;code&quot;: 200,
+            &quot;success&quot;: true,
+            &quot;payload&quot;: {
+                &quot;features&quot;: [
+                    &quot;serde&quot;,
+                    &quot;json&quot;
+                ]
+            }
+        });
+        println!(&quot;{}&quot;, value);
+    }
+
+    {
+        let code = 200;
+        let features = vec![&quot;serde&quot;, &quot;json&quot;];
+        let value = json!({
+            &quot;code&quot;: code,
+            &quot;success&quot;: code == 200,
+            &quot;payload&quot;: {
+                features[0]: features[1]
+            }
+        });
+        println!(&quot;{}&quot;, value);
+    }
+}
+</code></pre></pre>
+<h2 id="acessar-atributos-de-forma-dinâmica"><a class="header" href="#acessar-atributos-de-forma-dinâmica">Acessar atributos de forma dinâmica</a></h2>
+<p>Eventualmente poderemos precisar acessar atributos pelo nome.
+Para isso podemos usar o tipo <code>Value</code> e a função <code>from_str</code>:</p>
+<pre><pre class="playground"><code class="language-rust">use serde_json::Value;
+use serde_json::from_str;
+
+fn main() {
+    let data = r#&quot;
+        {
+            &quot;name&quot;: &quot;John Doe&quot;,
+            &quot;age&quot;: 43,
+            &quot;phones&quot;: [
+                &quot;+44 1234567&quot;,
+                &quot;+44 2345678&quot;
+            ]
+        }&quot;#;
+
+    // Parse the string of data into serde_json::Value.
+    let v: Value = from_str(&amp;data).unwrap();
+
+    // Access parts of the data by indexing with square brackets.
+    println!(&quot;Please call {} at the number {}&quot;, v[&quot;name&quot;], v[&quot;phones&quot;][0]);
+
+}
+</code></pre></pre>
+<p>Também é possível desserializar o json em <em>map</em>:</p>
+<pre><pre class="playground"><code class="language-rust">let map = HashMap&lt;String, Value&gt; = from_str(&amp;data).unwrap();
+```
+
+# Serializando e desserializando *structs*
+Para tornar um objeto serializável devemos definir os seguintes atributos no topo do `struct`:
+
+```rust
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize)]
+pub struct ObjetoJson {
+    pub id: u32,
+    pub name: String,
+}
+```
+
+Para serializar objeto em *string*:
+```rust
+
+let var_string = serde_json::to_string(&amp;objeto_json).unwrap();
+```
+
+Para desserializar objeto a partir de *string*:
+```rust
+let objeto_json: ObjetoJson = serde_json::from_str(&amp;var_string).unwrap();
+```
+
+Também é possível desserializar objeto usando a notação do *turbo fish* `::&lt;&gt;`:
+```rust
+let objeto_json = serde_json::from_str::&lt;ObjetoJson&gt;(&amp;var_string).unwrap();
+```
+
+Exemplo completo:
+
+```rust
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Groups {
+    groups: Vec&lt;Group&gt;
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Group {
+    pub id: u32,
+    pub name: String,
+}
+
+fn main() {
+    // Serializar objeto em string
+    let groups_s;
+    {
+        let group_a = Group {
+            id: 1,
+            name: String::from(&quot;Group A&quot;),
+        };
+        let group_b = Group {
+            id: 2,
+            name: String::from(&quot;Group B&quot;),
+        };
+        let group_c = Group {
+            id: 3,
+            name: String::from(&quot;Group C&quot;),
+        };
+
+        let groups = Groups { groups: vec![group_a, group_b, group_c] };
+
+        groups_s = serde_json::to_string(&amp;groups).unwrap();
+    }
+
+
+    // Desserializar objeto a partir de string
+    let groups = serde_json::from_str::&lt;Groups&gt;(&amp;groups_s).unwrap();
+    println!(&quot;{:?}&quot;, groups);
+
+}
+```
+## Formatação com quebra de linha
+Por padrão quando fazemos uma desserialização por `serde_json::to_string` o conteúdo fica todo em uma linha.
+Quando temos uma estrutura grande pode ficar difícil de ler. Para obtermos um string com quebra de linha e fácil
+entendimento humana usamos o `serde_json::to_string_pretty`:
+
+```rust
+let value = json!({
+    &quot;code&quot;: 200,
+    &quot;success&quot;: true,
+    });
+let s = serde_json::to_string_pretty(&amp;value).unwrap();
+println!(&quot;{}&quot;, s);
+```
+
+## Ferramenta para gerar *struct* a partir de string json
+Isso é útil, por exemplo, quando pretendemos interagir com alguma API com os tipos *json* já definidos.
+
+Podemos usar a ferramenta [transform.tools/json-to-rust-serde](https://transform.tools/json-to-rust-serde)
+
+Este site permite colocar o *json* e ele gera o *struct* Rust.
+
+É necessário ajustar a dependência para a versão mais recente do serde (trocar `serde_derive::` para `serde::`).
+Deve ficar:
+
+```rust
+use serde::{Serialize, Deserialize};
+
+```
+# Exercícios
+
+Pratique as três formas apresentadas para trabalhar com json:
+
+* `json!`
+* `Value` + `from_str`
+* `#[derive(Serialize, Deserialize)]` (`serde_json::to_string`  `serde_json::from_str`)
+
+---
+Aplique a serialização de *json* para os *structs* do exercício de vendas (produto, cliente, pedido e item).
+
+---
+Vamos preparar o nosso aplicativo de vendas para ler e gravar dados. Crie objetos *ProdutoRepository*, *ClienteRepository*, etc. Esses objetos deve ter um método `load(codigo: u32)` que deve receber o código e deve retornar `Result&lt;Cliente, String&gt;`, por exemplo. Moque alguns registros praticando o uso do `json!`.
+Dica: a rotina pode ser algo como:
+
+```rust
+if codigo == 1 {
+    let cliente =
+        serde_json::from_str::&lt;Cliente&gt;(
+            json!(
+                &quot;codigo&quot;: codigo,
+                &quot;nome&quot;: &quot;Nome&quot;,
+            )
+        );
+    Ok(cliente)
+} else {
+    Err(format!(&quot;Registro de código {} não encontrado!&quot;, codigo))
+}
+```
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="CLI_structopt.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="arquivos.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="CLI_structopt.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="arquivos.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

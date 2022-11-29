@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CLI structopt - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html" class="active"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="cli-structopt"><a class="header" href="#cli-structopt">CLI structopt</a></h1>
+<h2 id="introdução"><a class="header" href="#introdução">Introdução</a></h2>
+<p>Para criarmos aplicações CLI (linha de comando) iremos usar o <code>structopt</code>,
+que facilita muito nessa tarefa, com a vantagem que temos que somente
+declarar a estrutura de parâmetros e comandos.
+Em conjunto com ele iremos usar o <code>paw</code>, que permite o método <code>main</code> receber
+os parâmetros <code>args: Args</code> semelhante como em outras linguagens.</p>
+<p>Vamos inserir as dependências no <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[dependencies]
+paw = &quot;1.0&quot;
+structopt = { version = &quot;0.3&quot;, features = [&quot;paw&quot;] }
+</code></pre>
+<h2 id="parâmetros-posicionais"><a class="header" href="#parâmetros-posicionais">Parâmetros posicionais</a></h2>
+<p>No <code>main.rs</code> devemos declarar os comandos e parâmetros em um <code>struct</code>. Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use structopt::StructOpt;
+
+#[derive(StructOpt)]
+#[structopt(name = &quot;example&quot;, about = &quot;Aplicação teste de command line&quot;)]
+struct Args {
+    /// Versão que deve processar
+    versao: String,
+    /// Arquivo para carregar
+    arquivo: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observe que no topo do <em>struct</em> foi adicionado <code>#[derive(StructOpt)]</code> e também possui um <code>#[structopt]</code>.
+Esse último atributo permite definir o nome a e descrição para o aplicativo CLI.</p>
+<p>A definição dessa estrutura já irá montar o nosso <em>help</em> automaticamente, onde pode ser chamado pelo parâmetro <code>--help</code>.
+Os campos possuem comentários com <code>///</code>, que já servem como <em>help</em> do parâmetro ou comando.</p>
+<p>Para acessarmos os parâmetros devemos fazer da seguinte forma:</p>
+<pre><pre class="playground"><code class="language-rust">#[paw::main]
+fn main(args: Args) {
+    println!(
+        &quot;versão: {:?} arquivo: {:?}&quot;,
+        args.versao, args.arquivo
+    );
+}
+</code></pre></pre>
+<p>Observe no <code>main</code> possui o atributo <code>#[paw::main]</code> e que recebe o parâmetro <code>args: Args</code>.
+Mas o <code>args</code> não é <em>array</em> de <em>strings</em>, e sim é nossa própria estrutura de parâmetros já preenchida.</p>
+<p><strong>Se o usuário não informar os parâmetros esperados nem irá executar o método <code>main</code>.</strong>
+Isso também inclui a validação do formato do parâmetro, por exemplo,
+se definimos um parâmetro numérico <code>u32</code> e o usuário informou <code>String</code>.
+<strong>Esses tipos de validações simplificam muito o desenvolvimento da aplicação.</strong></p>
+<p>Nesse exemplo acima os parâmetros são <strong>posicionais</strong>, ou seja, eles dependem da ordem da posição em que foram definidos.</p>
+<h2 id="passar-parâmetros-pelo-cargo"><a class="header" href="#passar-parâmetros-pelo-cargo">Passar parâmetros pelo cargo</a></h2>
+<p>Quando executamos <code>cargo run</code> ele executa o programa sem passar os parâmetros para o nosso programa.
+Para passarmos parâmetros devemos fazer <code>cargo run -- &lt;parâmetros do nosso programa&gt;</code>.
+Esses <code>--</code> servem para delimitar que não é parâmetro do <code>cargo</code>. Por exemplo:</p>
+<pre><code>cargo run -- 20.20a arquivo.txt
+</code></pre>
+<p>Para exibir o help do nosso programa podemos fazer:</p>
+<pre><code>cargo run -- --help
+</code></pre>
+<h2 id="parâmetros-nomeados"><a class="header" href="#parâmetros-nomeados">Parâmetros nomeados</a></h2>
+<p>Outra forma de definir parâmetros são os <strong>nomeados</strong>.
+Nesse caso os parâmetros devem ter o nome indicado antes do valor,
+além que podem ter uma forma longa, tal como <code>--parametro</code> ou curta <code>-p</code>.
+Vamos adaptar o programa anterior:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(StructOpt)]
+#[structopt(name = &quot;example&quot;, about = &quot;Aplicação teste de command line&quot;)]
+struct Args {
+    /// Versão que deve processar
+    #[structopt(short, long)]
+    versao: String,
+    /// Arquivo para carregar
+    #[structopt(short, long)]
+    arquivo: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observe que agora cada campo possui o atributo <code>#[structopt]</code>.
+Perceba que são passados <code>short</code> e <code>long</code> como modificadores do atributo.
+Isso indica que o parâmetro permitir nomes curto e longo.</p>
+<p>Também existe o modificador <code>default_value</code>, que pode definir um valor <em>default</em>, caso o usuário não informar o parâmetro:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Versão que deve processar
+#[structopt(short, long, default_value = &quot;des&quot;)]
+versao: String,
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="parâmetros-switch"><a class="header" href="#parâmetros-switch">Parâmetros <em>switch</em></a></h3>
+<p>Se definimos um parâmetro como <code>bool</code> ele acaba funcionando como um <em>switch</em> (<em>flag</em>).</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Activate debug mode
+#[structopt(short, long)]
+debug: bool,
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="parâmetros-opcionais"><a class="header" href="#parâmetros-opcionais">Parâmetros opcionais</a></h3>
+<p>Se definimos um parâmetro como <code>Option</code> ele fica com comportamento de opcional (o usuário não precisa informar)</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>/// Output file, stdout if not present
+#[structopt(short, long)]
+output: Option&lt;String&gt;,
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="observações"><a class="header" href="#observações">Observações</a></h3>
+<p>Observe que podemos misturar parâmetros posicionais com nomeados. Isso permite construirmos algo como <code>grep -i texto arquivo.txt</code>.</p>
+<h2 id="comandos-e-sub-comandos"><a class="header" href="#comandos-e-sub-comandos">Comandos e sub-comandos</a></h2>
+<p>Podemos criar &quot;comandos&quot; de forma que cada comando tenha seus próprios parâmetros.
+Para isso devemos que declarar um <code>enum</code> para conter os comando e definir o atributo <code>#[structopt(subcommand)]</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">use structopt::StructOpt;
+</span>
+#[derive(StructOpt)]
+#[structopt(name = &quot;example&quot;, about = &quot;An example of StructOpt usage.&quot;)]
+struct Args {
+    /// Activate debug mode, short and long flags (-d, --debug) will be deduced from the field's name
+    #[structopt(short, long)]
+    debug: bool,
+    /// Version
+    #[structopt(short, long)]
+    version: String,
+    #[structopt(subcommand)]
+    command: Command,
+}
+
+#[derive(StructOpt)]
+enum Command {
+    List {},
+    Add {
+        /// Description (posicional field)
+        description: String,
+        /// Abbreviation (argumented and optional)
+        #[structopt(short, long)]
+        abbreviation: Option&lt;String&gt;,
+    },
+    Done {
+        /// Id (posicional field)
+        id: i64,
+    },
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>No exemplo acima o nosso programa vai ter os comandos <em>list</em>, <em>add</em> e <em>done</em>. Observe que cada comando teu os seus próprios parâmetros.</p>
+<p>Na execução da rotina podemos fazer um <code>match</code> para os comandos:</p>
+<pre><pre class="playground"><code class="language-rust">#[paw::main]
+fn main(args: Args) {
+    println!(
+        &quot;debug: {} versão: {:?}&quot;,
+        args.debug, args.version,
+    );
+    match args.command {
+        Command::List {} =&gt; {
+            list();
+        }
+        Command::Add {
+            description,
+            abbreviation,
+        } =&gt; {
+            add(description, abbreviation);
+        }
+        Command::Done { id } =&gt; {
+            done(id);
+        }
+    }
+}
+</code></pre></pre>
+<p>Observe que os parâmetros de cada comando são &quot;declarados&quot; dentro do bloco do <code>match</code>.
+Assim como alguns parâmetros são exclusivos de cada comando (declarado no <em>enum</em>), podemos ter parâmetros &quot;globais&quot; (declarados no <em>struct</em>)</p>
+<h2 id="exercícios"><a class="header" href="#exercícios">Exercícios</a></h2>
+<ul>
+<li>
+<p>Modifique o exercício de aceitar usuário/senha.</p>
+<ul>
+<li>Permita o programa informar usuário/senha por linha de comando, ao invés de aceitar de forma interativa. Se não informar nada mantenha o comportamento original.</li>
+</ul>
+</li>
+<li>
+<p>Modifique o exercício de aceitar elementos numéricos.</p>
+<ul>
+<li>Permita o programa informar os elementos por linha de comando, ao invés de aceitar de forma interativa. Se não informar nada mantenha o comportamento original. Dica: pode definir parâmetro como <code>Vec</code>.</li>
+</ul>
+</li>
+<li>
+<p>Quem terminar pode criar um programa para fazer uma espécie de TODO list, que permita comandos de adicionar, listar e marcar como realizado.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="exercícios.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="manipular_json.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="exercícios.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="manipular_json.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

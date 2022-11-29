@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introdução - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html" class="active"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="image/rust-logo.jpg" alt="Rust logo" /></p>
+<h2 id="introdução"><a class="header" href="#introdução">Introdução</a></h2>
+<p>A Programação Orientada a Objetos aumentou a produtividade em comparação a Programação Estruturada, principalmente devido a sua característica de abstração que permite um
+entendimento mais próximos à realidade humana.
+Entretanto programar com objetos envolve trabalhar com referências, que com o passar do
+tempo se provou criar uma série de problemas que antes não existiam.
+Podemos fazer uma analogia ao COBOL estruturado, quando que ocorreria um <em>null pointer exception</em> ou <em>memory leak</em>?</p>
+<blockquote>
+<p>De acordo com engenheiros do Google e da Microsoft, 70% dos bugs são causados por erros ao manipular memória e objetos.</p>
+</blockquote>
+<p>Nesse aspecto podemos dizer que Programação Estruturada é mais segura que a POO.</p>
+<h2 id="por-que-rust"><a class="header" href="#por-que-rust">Por que Rust?</a></h2>
+<p>Rust surgiu para permitir programar através de vários paradigmas sem correr os riscos de manipular referências.</p>
+<p>O inventor do conceito de <em>null</em>, Tony Hoare, hoje considera que esse foi o seu <a href="http://blog.mattcallanan.net/2010/09/tony-hoare-billion-dollar-mistake.html">erro de 1 bilhão de dólares</a>,
+devido ao custo de ter que prevê-lo, o custo do efeito negativo de quando ocorre erro e mais o custo para corrigi-lo.
+Rust é uma das poucas linguagens que conseguiu eliminar definitivamente o uso do <em>null</em>.</p>
+<p>O compilador impede muitos bugs em tempo de compilação, inclusive concorrência entre <em>threads</em>.
+Isso permite que sejam criados programas <strong>extremamente robustos</strong>.</p>
+<p>O compilador do Rust traz para si a responsabilidade de impedir erros, tirando o máximo possível das mãos do programador. Inclusive o controle de alocação de memória.
+Pelo fato do compilador resolver esta alocação em tempo de compilação, acaba sendo desnecessário haver <em>Garbage Collection</em>.
+Além disso, boa parte das variáveis são alocadas na memória <em>stack</em>, que é bem mais rápida que a memória <em>heap</em>. Outra característica do compilador é o <em>zero-cost abstraction</em>, onde a maneira que o programador estrutura o código não afeta o resultado final.
+Como resultado de tudo isso seus programas são <strong>extremamente rápidos</strong>.</p>
+<p><strong>Rust é uma linguagem inovadora, pois é a única que conseguiu conciliar alto desempenho com segurança.</strong></p>
+<p><img src="image/performance-seguran%C3%A7a.png" alt="Body frame" /></p>
+<blockquote>
+<p>Segundo engenheiros do Facebook, para adotar uma tecnologia não basta ser um pouco melhor, tem que ser muito melhor.</p>
+</blockquote>
+<p>Existe um custo para aprender e outro custo contínuo para mantê-la.
+Engenheiros do Facebook consideram Rust uma linguagem &quot;10 vezes&quot; melhor do que outras:
+<strong>o custo de se detectar um bug em compilação é de várias ordens menor do que em execução ou em produção</strong>.</p>
+<p>Rust é <em>free</em> e <em>opensource</em>. Gera código binário nativo para diversas plataformas.
+Não possui <em>runtime</em> nem <em>virtual machine</em>, ou seja, seu executável pode ser executado de maneira
+muito simples. Possui moderno gerenciador de pacotes e grande variedade de bibliotecas.</p>
+<h2 id="rust-é-baixo-nível"><a class="header" href="#rust-é-baixo-nível">Rust é baixo nível?</a></h2>
+<p>Rust é uma linguagem multi-paradigma, permite trabalhar de forma estruturada, orientada a objetos e funcional.
+Existe um mito que Rust serve somente para baixo nível.
+Na verdade serve tanto para baixo nível quanto para alto nível, onde podemos afirmar que
+<strong>Rust é uma das linguagens mais completas que existe</strong>.
+Alguns consideram como alternativa ao C++ e outros como alternativa ao Go.
+Rust possui várias abstrações de alto nível, algumas inclusive que não existem em outras linguagens.</p>
+<p><img src="image/baixo-alto-n%C3%ADvel.png" alt="Body frame" /></p>
+<blockquote>
+<p>No Facebook inicialmente pensou-se que Rust seria adotado mais facilmente por programadores de C++,
+porém foram os programadores de Python que mais se identificaram com a linguagem.</p>
+</blockquote>
+<h2 id="curva-de-aprendizado-e-complexidade"><a class="header" href="#curva-de-aprendizado-e-complexidade">Curva de aprendizado e complexidade</a></h2>
+<p>Por permitir fazer um monte de coisas é natural ter mais coisas para aprender.
+Podemos comparar ao COBOL, com uma curva de aprendizado semelhante.</p>
+<blockquote>
+<p>O Facebook concluiu que seus programadores demoravam até dois meses para se sentirem produtivos.</p>
+</blockquote>
+<p>Então não devemos nos frustrar em não aprender Rust em uma semana.
+E como em muitas linguagens, não precisamos aprender tudo para desenvolver algumas aplicações.
+Por exemplo, um programador Java não precisa dominar <em>generics</em>, interfaces, <em>lambdas</em> e <em>threads</em> para fazer alguns programas.
+Rust, por permitir vários paradigmas, pode fornecer algumas opções para contornarmos e alcançarmos o objetivo.</p>
+<p>Criar <em>software</em> seguro envolve uma dedicação maior a curto prazo, mas ao longo prazo ganha-se tempo por gerar menos manutenção.
+Pense a construção de <em>software</em> como sendo uma construção de um prédio.
+É mais fácil ir empilhando somente tijolos do que fazer vigas e colunas.
+Porém se for só empilhar tijolos, assim que vai subindo os andares as coisas começam a ficar mais perigosas.
+Rust funciona mais ou menos assim: a construção é mais rigorosa, mas permite expandir de uma forma bem mais robusta.</p>
+<p>Aprender a programar em Rust é como aprender a programar pela primeira vez.
+Muitos dos conceitos que aprendemos em outras linguagens não ajudarão, inclusive
+eventualmente teremos que desaprender algumas coisas.</p>
+<blockquote>
+<p>Um fato que vale a pena reforçar: se você está fazendo algo errado em Rust o programa simplesmente não compila.
+Em outras linguagens <em>não fazer certo</em> muitas vezes é sinônimo de <em>erro de execução</em>. Em Rust isso dificilmente ocorre.
+Ou seja, se alguém tiver dificuldade em aprender Rust não significa que ele estará fazendo programas errados.
+<strong>Pode ser difícil programar em Rust, mas é muito fácil de programar certo em Rust.</strong></p>
+</blockquote>
+<h2 id="production-ready"><a class="header" href="#production-ready"><em>Production ready</em></a></h2>
+<p>Rust começou a ser desenvolvida em 2010 e a versão 1.0 foi lançada em 2015.
+Hoje Rust é usado em produção por grandes empresas, tal como AWS, Microsoft, Google, Facebook, Apple, SAP, Oracle, etc.</p>
+<p>Até a pouco tempo Rust era mantido pela Mozilla (desenvolvedora do Firefox),
+mas agora existe a <em>Rust Foundation</em>, que funciona independente, sendo patrocinada por:
+<strong>AWS (Amazon), Google, Facebook, Huawei, Microsoft e Mozilla</strong>.</p>
+<p><img src="image/rust-sponsors.png" alt="Rust sponsors" />
+Estas empresas, além de manter a fundação financeiramente, também mantém seus próprios times para trabalhar no compilador.
+Então são 6 grandes empresas pagando salários de programadores para trabalharem focados no Rust. Além destas, outras empresas
+menores fazem o mesmo e vários outros programadores contribuem de forma independente.
+Isso resulta que hoje <strong>há muito mais programadores trabalhando no Rust do que no Java</strong> (900 contra 200, consultando <em>commits</em> dos últimos meses).</p>
+<p>A <em>Rust Foundation</em> foi criada somente no início de 2021,
+então o fruto do envolvimento das grandes empresas ainda está por aparecer, por isso há uma grande expectativa da linguagem
+crescer ainda mais em recursos, adoção e ecossistema.</p>
+<h2 id="programar-em-rust-é-muito-legal"><a class="header" href="#programar-em-rust-é-muito-legal">Programar em Rust é muito legal</a></h2>
+<p>Ferris, mascote do Rust:</p>
+<p><img src="image/rust-ferris.png" alt="Rust ferris" /></p>
+<p>Por cinco anos consecutivos <strong>Rust é considerada a linguagem mais amada do mundo</strong>, segundo pesquisa do <em>Stackoverflow</em>.
+Apesar de ter uma curva de aprendizado maior que outras linguagens atuais, geralmente acaba conquistando
+o programador principalmente pela sua sintaxe moderna e característica de gerar programas mais seguros.</p>
+<p>O comportamento do compilador é muito amigável, geralmente dá dicas do que podemos estar errando e
+como podemos resolver. Por exemplo, quando erramos o nome de uma variável ele sugere outras com nomes semelhantes.</p>
+<p>A inferência de tipos é muito poderosa, graças ao seu <em>Bidirectional Typechecking</em>.
+Muitas vezes não precisamos declarar o tipo das variáveis e ficamos com a impressão que estamos
+programando em uma linguagem dinamicamente tipada,
+entretanto sem correr o risco de ter seus possível erros.</p>
+<p>Por se relativamente nova, conseguiu se adaptar muito bem a editores modernos tal como VSCode,
+onde possui um <em>language server</em> com muitos recursos.</p>
+<h2 id="Ótima-documentação-e-comunidade-vibrante"><a class="header" href="#Ótima-documentação-e-comunidade-vibrante">Ótima documentação e comunidade vibrante</a></h2>
+<p>Existe muita fonte de informação sobre Rust. Esses são os principais:</p>
+<p>Aprender:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/">Learn book oficial</a></li>
+<li><a href="https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/">Take your first steps with Rust (oficial Microsoft)</a></li>
+<li><a href="https://tourofrust.com/">Tour of Rust</a></li>
+<li><a href="https://dhghomon.github.io/easy_rust/">Easy Rust</a></li>
+<li><a href="https://stevedonovan.github.io/rust-gentle-intro/">Rust Gentle</a></li>
+<li><a href="https://fasterthanli.me/articles/i-am-a-java-csharp-c-or-cplusplus-dev-time-to-do-some-rust">Artigo para programadores Java</a></li>
+<li><a href="https://cheats.rs/">Rust Language Cheat Sheet</a></li>
+</ul>
+<p>Algoritmos de exemplo:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/rust-by-example/">Rust by example</a></li>
+<li><a href="https://github.com/TheAlgorithms/Rust">The Algorithms</a></li>
+<li><a href="https://rust-lang-nursery.github.io/rust-cookbook/intro.html">Cook Book</a></li>
+</ul>
+<p>Exercícios:</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rustlings/">Rustlings</a></li>
+<li><a href="https://exercism.io/my/tracks/rust">Exercism Rust Track</a></li>
+</ul>
+<p>Fóruns e ajuda:</p>
+<ul>
+<li><a href="https://users.rust-lang.org/">Fórum oficial</a></li>
+<li><a href="https://www.reddit.com/r/learnrust/">Reddit Learn Rust</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/rust">Stack Overflow</a></li>
+</ul>
+<p>Novidades no mundo Rust:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/rust/">Reddit Rust</a></li>
+<li><a href="https://this-week-in-rust.org/">This Week in Rust</a></li>
+</ul>
+<p>Padrões sugeridos:</p>
+<ul>
+<li><a href="https://rust-unofficial.github.io/patterns/">Design patterns in Rust</a></li>
+<li><a href="https://nnethercote.github.io/perf-book/">Performance book</a></li>
+<li><a href="https://doc.rust-lang.org/1.0.0/style/">Guia de estilo</a></li>
+<li><a href="https://rust-lang.github.io/api-guidelines/">Rust API Guidelines</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="instalação.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="hello_world.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="instalação.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="hello_world.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

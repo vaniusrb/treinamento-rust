@@ -1,0 +1,645 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Traits (interfaces) - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html" class="active"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="traits-interfaces"><a class="header" href="#traits-interfaces"><em>Traits</em> (interfaces)</a></h1>
+<h2 id="introdução"><a class="header" href="#introdução">Introdução</a></h2>
+<p>Em Rust o equivalente a interface seria a <code>trait</code>. Não se chama interface pois a <em>trait</em> tem um comportamento mais estendido, onde permite criar métodos que podem ser reaproveitado entre as implementações.
+Algumas linguagens chamam esse conceito de <em>mixin</em>.</p>
+<p>Muitos dos comportamentos da linguagem é dito pelo uso de <em>traits</em>. Por exemplo, operações lógicas e aritméticas implementam <em>traits</em>. Isso permite que nós possamos utilizar esse tipo de operação nos nossos próprios objetos.</p>
+<p>Também podemos implementar <em>traits</em> nossas para objetos já existentes, inclusive objetos nativos e de terceiros.
+Isso é extremamente poderoso principalmente para construção de APIs, onde podemos generalizar e tornar vários tipos compatíveis com nossas rotinas.</p>
+<h2 id="declaração"><a class="header" href="#declaração">Declaração</a></h2>
+<p>Para declarar uma <code>trait</code> devemos fazer semelhante como fazemos com <code>struct</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait MyTrait {
+    fn name(&amp;self) -&gt; String;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para implementação devemos ter um bloco do tipo <code>impl Trait for Struct</code>.
+Esse bloco fica fora do <code>impl</code> da implementação:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct MyStructA {
+    name: String,
+}
+
+impl MyStructA {
+    pub fn new(name: String) -&gt; Self {
+        Self {
+            name,
+        }
+    }
+}
+
+// Implementação da trait para este struct
+impl MyTrait for MyStructA {
+    fn name(&amp;self) -&gt; String {
+        self.name.clone()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observe que essa distinção é bem interessante pois facilmente sabemos quais métodos estão
+sendo implementados por cada <em>trait</em>. No Java por exemplo, apenas aparece um <code>@override</code>.</p>
+<p>Podemos inclusive implementar em um arquivo fonte diferente de onde está declarado.
+Por exemplo, posso implementar <code>MyTrait</code> no <em>struct</em> <code>String</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// Implementação da trait para String
+impl MyTrait for String {
+    fn name(&amp;self) -&gt; String {
+        &quot;string name&quot;.to_string()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="traitsinterfaces-e-suas-implicações-no-uso-de-memória-e-performance"><a class="header" href="#traitsinterfaces-e-suas-implicações-no-uso-de-memória-e-performance"><em>Traits/interfaces</em> e suas implicações no uso de memória e performance</a></h2>
+<p>Rust possui algumas sintaxes para permitir um melhor uso de memória e obter também um melhor desempenho. A seguir vamos abordar alguns desses
+aspectos referente ao uso com <em>traits</em>.</p>
+<h3 id="performance"><a class="header" href="#performance">Performance</a></h3>
+<p>Um fato que ocorre em todas linguagens que permitem polimorfismo, ao executar um método de interface (assim como <em>traits</em>),
+para cada invocação é necessário o programa consultar uma tabela chamada <em>vtable</em>.
+Essa tabela virtual possui a associação do método da interface com o endereço real do método de cada implementação.</p>
+<p>Isso significa que invocar métodos de uma interface é mais lento que invocar um método de um tipo concreto.</p>
+<h4 id="dynamic-dispatch-e-static-dispatch"><a class="header" href="#dynamic-dispatch-e-static-dispatch"><em>Dynamic dispatch e static dispatch</em></a></h4>
+<p>Tendo preocupação com os aspectos acima, Rust permite trabalhar com <em>traits</em>
+de duas formas: <em>dynamic dispatch</em> e <em>static dispatch</em>.</p>
+<ul>
+<li>
+<p><em><strong>Dynamic dispatch</strong></em> é a forma que a maioria das linguagens trabalha. Nesse formato toda invocação de métodos consulta a tabela <em>vtable</em>.
+Também não é possivel alocar memória na <em>stack</em>.</p>
+</li>
+<li>
+<p><em><strong>Static dispatch</strong></em> por sua vez não necessita da tabela <em>vtable</em> e
+é possível alocar o objeto na <em>stack</em>.
+Isso é possível pelo fato que na prática o compilador cria uma &quot;versão&quot;
+da função para cada implementação. Então durante a execução da função
+o compilador sabe exatamente qual objeto está acessado. Isso logicamente
+aumenta o código gerado porém há ganho de performance.</p>
+</li>
+</ul>
+<p>Para diferenciar entre os dois tipos de <em>dispatch</em> é utilizada as palavras reservadas <code>dyn</code> (<em>dynamic</em>) e <code>impl</code> (<em>static</em>).
+O <code>impl</code> somente pode ser declarado em parâmetros e retorno de funções,
+então na prática o <code>dyn</code> será mais utilizado.</p>
+<h3 id="alocação-de-memória"><a class="header" href="#alocação-de-memória">Alocação de memória</a></h3>
+<p>Como sabemos Rust possui uma preocupação sobre alocação de memória,
+de forma que tende usar a memória <em>stack</em> para tipos de tamanhos conhecidos.</p>
+<p>Cada <em>trait</em> pode generalizar vários tipos de estruturas,
+então o seu tamanho pode ser desconhecido.
+Esse fato pode fazer com o compilador não aloque a memória na <em>stack</em>,
+pois não tem como antever a memória necessária em tempo de compilação.</p>
+<h4 id="uso-de-box"><a class="header" href="#uso-de-box">Uso de Box</a></h4>
+<p>Pelo fato da implementação dinâmica <code>dyn</code> não poder representar
+uma área na <em>stack</em>, obrigatoriamente alocará na <em>heap</em>.
+Para indicar uma área alocada na <em>heap</em> é utilizado o tipo de objeto
+<code>Box&lt;T&gt;</code>.</p>
+<p>Será muito comum utilizarmos esse tipo de objeto para armazenar
+uma <em>trait</em>. Nesse caso temos que informar o <code>dyn</code>.  Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let instance: Box&lt;dyn Trait&gt;;
+<span class="boring">}
+</span></code></pre></pre>
+<p>No caso de referência podemos declarar sem o <code>Box</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let instance: &amp;dyn Trait;
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="exemplo-prático"><a class="header" href="#exemplo-prático">Exemplo prático</a></h2>
+<p>Um bom exemplo de uso de interface/<em>trait</em> é tornar a aplicação
+desacoplada da implementação que obtém um valor a partir de arquivo
+de configuração. Vamos imaginar uma rotina que obtém o <em>id</em> do
+cliente em execução e o caminho do banco de dados. Em produção
+a aplicação pode usar a implementação que lê esses dados de arquivo ini, entretanto para testes unitários podemos mocar esses dados
+para um ambiente de desenvolvimento.</p>
+<p>Nesse exemplo vamos declarar a estrutura de configuração:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Config {
+    customer_id: u32,
+    data_base_uri: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Essa estrutura deve ser obtida por um <em>provider</em>, que pode ter diversas
+implementações.</p>
+<p>A trait do provider será assim:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait ConfigProvider {
+    fn load(&amp;self) -&gt; Config;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esta <em>trait</em> declara o método <code>load</code>. Observe que ele dever ter
+o parâmetro <code>&amp;self</code>, que indica método dinâmico.</p>
+<p>Agora vamos declarar a implementação:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct FileConfigProvider {
+    config_file: PathBuf,
+}
+
+impl FileConfigProvider {
+    fn new(config_file: PathBuf) -&gt; Self {
+        Self { config_file }
+    }
+}
+
+impl ConfigProvider for FileConfigProvider {
+    fn load(&amp;self) -&gt; Config {
+        //TODO: Create Config from ini file here...
+        Config {
+            customer_id: 4070,
+            data_base_uri: String::from(&quot;localhost:5020&quot;),
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observe a linha <code>impl ConfigProvider for FileConfigProvider</code>,
+é aqui que declaramos a implementação da interface.</p>
+<p>Agora vamos ver como armazenamos a variável que recebe a <code>trait</code>:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let config_file = PathBuf::from(&quot;APP.ini&quot;);
+
+    let config_provider: Box&lt;dyn ConfigProvider&gt; = Box::new(FileConfigProvider::new(config_file));
+
+    let config = config_provider.load();
+    println!(
+        &quot;Customer id: {} data base URI: {}&quot;,
+        config.customer_id, config.data_base_uri
+    );
+}
+</code></pre></pre>
+<p>Observe que a variável <code>config_provider</code> é <em>owned</em>, ou seja,
+é dona do objeto. Por isso nesse caso é obrigado a usarmos o <code>Box</code>.
+Caso fosse armazenar a referência então pode usar o <code>&amp;dyn ConfigProvider</code>. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let config_file = PathBuf::from(&quot;APP.ini&quot;);
+
+    let config_provider: &amp;dyn ConfigProvider = &amp;FileConfigProvider::new(config_file);
+
+    let config = config_provider.load();
+    println!(
+        &quot;Customer id: {} data base URI: {}&quot;,
+        config.customer_id, config.data_base_uri
+    );
+</code></pre></pre>
+<h2 id="definir-parâmetro"><a class="header" href="#definir-parâmetro">Definir parâmetro</a></h2>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn show_config(config_provider: &amp;dyn ConfigProvider) {
+    let config = config_provider.load();
+    println!(
+        &quot;Customer id: {} data base URI: {}&quot;,
+        config.customer_id, config.data_base_uri
+    );
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para passarmos um <code>Box&lt;dyn Trait&gt;</code> para <code>&amp;dyn Trait</code> temos que tirar o Box com <code>*</code> (de-referência) e depois acessar por <code>&amp;</code> referência. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>show_config(&amp;*config_provider);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para passar uma <em>trait</em> via referência é um pouco mais verboso:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn show_config_impl(config_provider: &amp;(impl ConfigProvider + ?Sized)) {
+    let config = config_provider.load();
+    println!(
+        &quot;Customer id: {} data base URI: {}&quot;,
+        config.customer_id, config.data_base_uri
+    );
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="definir-retorno"><a class="header" href="#definir-retorno">Definir retorno</a></h2>
+<p>Podemos definir retorno de uma função com <code>impl T</code> ou <code>Box&lt;dyn T&gt;</code>.</p>
+<p>Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn create_config_provider_impl() -&gt; impl ConfigProvider {
+    FileConfigProvider::new(PathBuf::from(&quot;APP.ini&quot;))
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para uma função que retorna <code>impl</code> a função deve retornar somente um tipo de implementação.
+Caso essa função tentar retornar mais de um tipo de implementação ocorrerá um erro de compilação.
+Para contornar isso deve ser utilizado o retorno dom <code>dyn</code>. Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn create_config_provider_dyn() -&gt; Box&lt;dyn ConfigProvider&gt; {
+    Box::new(FileConfigProvider::new(PathBuf::from(&quot;APP.ini&quot;)))
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="declarar-field-como-trait"><a class="header" href="#declarar-field-como-trait">Declarar <em>field</em> como <em>trait</em></a></h2>
+<p>Para declarar campo contendo uma trait em geral usamos <code>Box&lt;T&gt;</code>.
+O exemplo mostra como receber uma <em>trait</em> por <code>dyn</code> e <code>impl</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct StructTraitBoxed {
+    data_set: Box&lt;dyn DataSet&gt;,
+}
+
+impl StructTraitBoxed {
+    pub fn from_impl(data_set: impl DataSet + 'static) -&gt; Self {
+        Self {
+            data_set: Box::new(data_set),
+        }
+    }
+
+    pub fn from_box(data_set: Box&lt;dyn DataSet&gt;) -&gt; Self {
+        Self { data_set }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observe que usamos <code>impl DataSet + 'static</code>, que é uma restrição técnica para garantir que
+a <em>trait</em> não conterá nenhum referência externa com tempo de vida curta.</p>
+<p>Outra possibilidade é usar <em>generic</em> com <em>bounds</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct StructTraitGeneric&lt;T: DataSet&gt; {
+    data_set: T,
+}
+
+impl&lt;T: DataSet&gt; StructTraitGeneric&lt;T&gt; {
+    pub fn from_impl(data_set: T) -&gt; Self {
+        Self { data_set }
+    }
+
+    pub fn from_box(data_set: Box&lt;T&gt;) -&gt; Self {
+        Self {
+            data_set: *data_set,
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esse tipo acima deve ser evitado pois ele pode causar o efeito que a declaração
+da <em>generic</em> acaba se espalhando.</p>
+<h2 id="pattern-para-simular-sobrecarga-de-parâmetros"><a class="header" href="#pattern-para-simular-sobrecarga-de-parâmetros"><em>Pattern</em> para simular sobrecarga de parâmetros</a></h2>
+<p>Apesar que Rust nativamente não permite sobrecarga de parâmetros,
+podemos simular esse comportamento através do uso de <em>traits</em>.
+Isso é possível graças a possibilidade de implementarmos <em>traits</em>
+para qualquer tipo do Rust, inclusive tipo nativos.
+Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct FieldValue {
+    value: String,
+}
+
+impl FieldValue {
+    pub fn new(value: String) -&gt; Self {
+        Self { value }
+    }
+}
+
+trait IntoFieldValue {
+    fn to_value(self) -&gt; FieldValue;
+}
+
+impl IntoFieldValue for String {
+    fn to_value(self) -&gt; FieldValue {
+        FieldValue::new(self)
+    }
+}
+
+impl IntoFieldValue for i64 {
+    fn to_value(self) -&gt; FieldValue {
+        FieldValue::new(self.to_string())
+    }
+}
+
+fn create_field(into_field_value: impl IntoFieldValue) -&gt; FieldValue {
+    into_field_value.to_value()
+}
+
+#[test]
+fn create_field_test() {
+    create_field(String::from(&quot;10&quot;));
+    create_field(10i64);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="exercício"><a class="header" href="#exercício">Exercício</a></h2>
+<p>No nosso último exercício de <em>TO-DO List</em> temos funções estáticas para ler e gravar
+dados do <em>SQLite</em>. Esse seria um bom caso para aplicarmos <em>traits</em>, pois no futuro
+podermos ter implementação para ler os nossos <em>TODOs</em> de diferente fonte de dados.</p>
+<p>Como temos funções <em>async</em> a nossa trait precisará da lib <code>async-trait</code>. Para isso
+precisaremos incluir no <code>Cargo.toml</code>:</p>
+<pre><code class="language-ini">[dependencies]
+async-trait = &quot;0.1&quot;
+</code></pre>
+<p>Também será necessário incluir o atributo <code>#[async_trait]</code> em dois pontos:
+na declaração e implementação da <em>trait</em>.</p>
+<p>A declaração da <em>trait</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[async_trait]
+pub trait TodoRepository {
+    async fn add_todo(&amp;self, description: String) -&gt; Result&lt;i64&gt;;
+    async fn complete_todo(&amp;self, id: i64) -&gt; Result&lt;bool&gt;;
+    async fn list_todos(&amp;self) -&gt; Result&lt;()&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A declaração da implementação <em>SQLite</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct TodoSqliteRepository {
+    pool: SqlitePool,
+}
+
+impl TodoSqliteRepository {
+    pub fn new(pool: SqlitePool) -&gt; Self {
+        Self { pool }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Implementando a <em>trait</em> na implementação <em>SQLite</em>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[async_trait]
+impl TodoRepository for TodoSqliteRepository {
+    async fn add_todo(&amp;self, description: String) -&gt; Result&lt;i64&gt; {
+        add_todo(&amp;self.pool, description).await
+    }
+
+    async fn complete_todo(&amp;self, id: i64) -&gt; Result&lt;bool&gt; {
+        complete_todo(&amp;self.pool, id).await
+    }
+
+    async fn list_todos(&amp;self) -&gt; Result&lt;()&gt; {
+        list_todos(&amp;self.pool).await
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para usar a <em>trait</em> deve fazer:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let sqlite_repository: &amp;dyn TodoRepository = &amp;TodoSqliteRepository::new(pool);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Faça os ajustes necessários para chamar os métodos da <em>trait</em> ao invés dos métodos estáticos.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="sqlx.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="closures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="sqlx.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="closures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

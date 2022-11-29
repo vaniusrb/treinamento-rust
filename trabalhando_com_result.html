@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trabalhando com Result - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html" class="active"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="aprofundando-o-uso-de-result"><a class="header" href="#aprofundando-o-uso-de-result">Aprofundando o uso de <code>Result</code></a></h2>
+<p>Vamos supor que queremos obter o objeto <code>path</code> válido dentro do contexto da função chamadora:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">use std::path::PathBuf;
+</span><span class="boring">fn cria_arquivo(nome_arquivo: &amp;str) -&gt; Result&lt;PathBuf, String&gt; {
+</span><span class="boring">   let path = PathBuf::from(nome_arquivo);
+</span><span class="boring">   if path.exists() {
+</span><span class="boring">       Ok(path)
+</span><span class="boring">   } else {
+</span><span class="boring">       Err(format!(&quot;Arquivo {} não existe!&quot;, nome_arquivo))
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>fn main() {
+    let path =
+        match cria_arquivo(&quot;c:/temp/arquivo.txt&quot;) {
+            Ok(path) =&gt; path,
+            Err(_) =&gt; return,
+        };
+    println!(&quot;Criou arquivo {:?} corretamente.&quot;, path);
+}
+</code></pre></pre>
+<p>No exemplo acima se ocorrer um erro a rotina é abortada, devido ao <code>return</code>, então o <code>match</code> consegue retornar o <code>path</code>.</p>
+<p>O código ainda está com muitas linhas, podemos refatorá-lo em dois passos:</p>
+<h4 id="propagando-o-erro-para-função-chamador"><a class="header" href="#propagando-o-erro-para-função-chamador">Propagando o erro para função chamador</a></h4>
+<p>Vamos alterar a função <code>main</code> para permitir retornar o erro capturado no <em>match</em>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">use std::path::PathBuf;
+</span><span class="boring">fn cria_arquivo(nome_arquivo: &amp;str) -&gt; Result&lt;PathBuf, String&gt; {
+</span><span class="boring">   let path = PathBuf::from(nome_arquivo);
+</span><span class="boring">   if path.exists() {
+</span><span class="boring">       Ok(path)
+</span><span class="boring">   } else {
+</span><span class="boring">       Err(format!(&quot;Arquivo {} não existe!&quot;, nome_arquivo))
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>fn main() -&gt; Result&lt;(), String&gt; {
+    let path =
+        match cria_arquivo(&quot;c:/temp/arquivo.txt&quot;) {
+            Ok(path) =&gt; path,
+            Err(e) =&gt; return Err(e),
+        };
+    println!(&quot;Criou arquivo {:?} corretamente.&quot;, path);
+    Ok(())
+}
+</code></pre></pre>
+<p>Aqui temos algumas novidades:</p>
+<ul>
+<li>Observe que na assinatura da função o retorno <code>Result&lt;(), String&gt;</code>. Os parênteses <code>()</code> é chamado como tipo <em>unit</em>, que seria equivalente ao <code>void</code> do Java.</li>
+<li>Na última linha da função <code>main</code> temos o <code>Ok(())</code>, que significa que a função executou com sucesso, entretanto não possui uma valor de retorno.</li>
+<li>No <code>math</code> quando ocorre erro agora temos <code>Err(e) =&gt; return Err(e)</code></li>
+</ul>
+<h4 id="syntax-sugar-para-propagação-do-erro"><a class="header" href="#syntax-sugar-para-propagação-do-erro"><em>Syntax sugar</em> para propagação do erro</a></h4>
+<p>Vamos substituir a estrutura de <em>match</em> pelo caractere <code>?</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">use std::path::PathBuf;
+</span><span class="boring">fn cria_arquivo(nome_arquivo: &amp;str) -&gt; Result&lt;PathBuf, String&gt; {
+</span><span class="boring">   let path = PathBuf::from(nome_arquivo);
+</span><span class="boring">   if path.exists() {
+</span><span class="boring">       Ok(path)
+</span><span class="boring">   } else {
+</span><span class="boring">       Err(format!(&quot;Arquivo {} não existe!&quot;, nome_arquivo))
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>
+fn main() -&gt; Result&lt;(), String&gt; {
+    let path = cria_arquivo(&quot;.&quot;)?;
+    println!(&quot;Criou arquivo {:?} corretamente.&quot;, path);
+    Ok(())
+}
+</code></pre></pre>
+<p>Quando temos o <code>match</code> retornando a variável de sucesso e o erro sendo retornado na função,
+podemos usar o caractere <code>?</code>, que funciona como um <em>syntax sugar</em>.</p>
+<p>O exemplo acima agora está bem próximo do que estamos acostumados em outras linguagens,
+quando o erro é propagado para função chamadora.</p>
+<h2 id="generalizando-o-tratamento-de-erro"><a class="header" href="#generalizando-o-tratamento-de-erro">Generalizando o tratamento de erro</a></h2>
+<p>Observe que só podemos usar o <code>?</code> nas funções que retornam <code>Result</code>. E existe o requisito que
+o tipo <code>Err(E)</code> da função chamada deve ter o mesmo tipo da função chamadora.</p>
+<p>Isso pode ser um pouco inconveniente, pois diferentes APIs normalmente possuem retornar diferentes tipos de erro. Ficaria verboso ter que ficar tratando o retorno com <em>match</em>.</p>
+<p>Hoje não é possível generalizar os tipos de erros de forma nativa, apesar que estão trabalhando no compilador para melhorar isso. Para permitir <code>?</code> para qualquer tipo, iremos usar a lib <code>anyhow</code>.
+Devemos definir a dependência no <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">anyhow = &quot;1.0&quot;
+</code></pre>
+<p>E definir o uso no topo do fonte:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use anyhow::Result
+<span class="boring">}
+</span></code></pre></pre>
+<p>Iremos utilizar a forma do <code>Result&lt;T&gt;</code> sem <code>&lt;E&gt;</code>, pois como o erro será generalizado então não será necessário informar o tipo do erro:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() -&gt; Result&lt;()&gt; {
+    let path = cria_arquivo(&quot;.&quot;)?;
+    println!(&quot;Criou arquivo {:?} corretamente.&quot;, path);
+    Ok(())
+}
+</code></pre></pre>
+<p>Observe que declaramos somente <code>Result&lt;()&gt;</code>.</p>
+<p>Para levantar um erro definimos um <code>Err</code> passando a macro <code>anyhow!</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>return Err(anyhow!(&quot;Missing attribute: {}&quot;, missing));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Existe a macro <code>bail!</code> que já faz o <code>return Err(anyhow!())</code> internamente:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>bail!(&quot;Missing attribute: {}&quot;, missing);
+<span class="boring">}
+</span></code></pre></pre>
+<p>A lib <em>anyhow</em> também permite adicionar uma mensagem de contexto ao novo erro que será propagado,
+através da função <code>context</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut reader = File::open(&amp;filename)
+    .context(format!(&quot;Unable to open '{}'&quot;, filename))?;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para fazermos um &quot;<em>throw</em>&quot; de um erro qualquer (que não seja do anyhow) devemos usar retornar <code>Err(e.into())</code>, por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn file_reader(filename: &amp;str) -&gt; anyhow::Result&lt;FileReader&gt; {
+    let reader = match File::open(filename) {
+        Ok(reader) =&gt; reader,
+        Err(e) =&gt; {
+            eprintln!(&quot;Erro ao obter FileReader: {}. Nome do arquivo: {}.&quot;, e, filename);
+            return Err(e.into());
+        }
+    };
+    Ok(reader)
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="comparação-com-java"><a class="header" href="#comparação-com-java">Comparação com Java</a></h3>
+<p>Vamos revisar a sintaxe para tratar erro e comparar com Java:</p>
+<h4 id="levantando-erro"><a class="header" href="#levantando-erro">Levantando erro:</a></h4>
+<p>Java:</p>
+<pre><code class="language-java">void Path cria_arquivo() throws Exception {
+    throw new Exception(&quot;Arquivo não existe!&quot;);
+}
+</code></pre>
+<p>Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn cria_arquivo() -&gt; Result&lt;PathBuf&gt; {
+    return Err(anyhow!(&quot;Arquivo não existe!&quot;));
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>ou usar a macro <code>bail!</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn cria_arquivo() -&gt; Result&lt;PathBuf&gt; {
+    bail!(&quot;Arquivo não existe!&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="chamando-a-função-sem-tratar-propagando-o-erro-para-a-função-anterior"><a class="header" href="#chamando-a-função-sem-tratar-propagando-o-erro-para-a-função-anterior">Chamando a função sem tratar, propagando o erro para a função anterior:</a></h4>
+<p>Java:</p>
+<pre><code class="language-java">void inicializa() throws Exception {
+    cria_arquivo();
+}
+</code></pre>
+<p>Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn inicializa() -&gt; Result&lt;&gt; {
+    cria_arquivo()?;
+    Ok(())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="chamando-a-função-tratando-o-erro"><a class="header" href="#chamando-a-função-tratando-o-erro">Chamando a função tratando o erro:</a></h3>
+<p>Java:</p>
+<pre><code class="language-java">void inicializa() {
+    try {
+        var arquivo = cria_arquivo();
+        System.output.println(&quot;Criou ok &quot; + arquivo);
+    } catch (Exception ex) {
+        System.output.println(&quot;Não criou arquivo, erro &quot; + ex);
+    }
+}
+</code></pre>
+<p>Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn inicializa() {
+    match cria_arquivo() {
+        Ok(arquivo) =&gt; println!(&quot;Criou ok {:?}&quot;, arquivo),
+        Err(e) =&gt; println!(&quot;Não criou arquivo, erro {:?}&quot;, e),
+    };
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="tratando-e-levantando-a-exceção"><a class="header" href="#tratando-e-levantando-a-exceção">Tratando e levantando a exceção</a></h3>
+<p>Java:</p>
+<pre><code class="language-java">void inicializa() throws Exception {
+    try {
+        var arquivo = cria_arquivo();
+        System.output.println(&quot;Criou ok &quot; + arquivo);
+    } catch (Exception ex) {
+        System.output.println(&quot;Não criou arquivo, erro &quot; + ex);
+        throw ex;
+    }
+}
+</code></pre>
+<p>Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn inicializa() -&gt; Result&lt;()&gt; {
+    match cria_arquivo() {
+        Ok(arquivo) =&gt; println!(&quot;Criou ok {:?}&quot;, arquivo),
+        Err(e) =&gt; {
+            println!(&quot;Não criou arquivo, erro {:?}&quot;, e);
+            return Err(e);
+        }
+    };
+    Ok(())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="tratando-e-definindo-um-default"><a class="header" href="#tratando-e-definindo-um-default">Tratando e definindo um default</a></h3>
+<p>Java:</p>
+<pre><code class="language-java">void inicializa() {
+    var arquivo;
+    try {
+        arquivo = cria_arquivo();
+    } catch (Exception ex) {
+        arquivo = &quot;default.ini&quot;;
+    }
+}
+</code></pre>
+<p>Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn inicializa() {
+    let arquivo = cria_arquivo().unwrap_or_else(|e|&quot;default.ini&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="visibilidade-das-funções-falíveis"><a class="header" href="#visibilidade-das-funções-falíveis">Visibilidade das funções falíveis</a></h4>
+<p>Uma observação: outra vantagem do caractere <code>?</code> é que ele deixa explícito quais funções podem causar erro. No Java por exemplo:
+fica obscuro onde isso ocorre.</p>
+<pre><code class="language-java">public void main() throws IOException {
+    inicializa();
+    cria_arquivo();
+    finaliza();
+}
+</code></pre>
+<p>Em Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn void main() -&gt; Result&lt;()&gt; {
+    inicializa()?;
+    cria_arquivo()?;
+    finaliza();
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="mapear-erro-para-adicionar-contexto"><a class="header" href="#mapear-erro-para-adicionar-contexto">Mapear erro para adicionar contexto</a></h2>
+<p>Um método que pode ser útil é <code>map_err</code> que é um <em>callback</em>
+onde podemos trocar para um novo tipo de erro e então
+adicionar contexto. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let output = Command::new(program)
+    .args(args)
+    .current_dir(&amp;directory)
+    .output()
+    .map_err(|e| {
+        anyhow!(
+            &quot;{:?}. Erro ao executar comando {} no diretório {}&quot;,
+            e,
+            program.to_string_lossy(),
+            directory.to_string_lossy()
+        )
+    })?;
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="convertendo-option-para-result"><a class="header" href="#convertendo-option-para-result">Convertendo <code>Option</code> para <code>Result</code></a></h2>
+<p>Eventualmente alguma API pode retornar um <code>Option</code> onde queremos &quot;forçar&quot; a funcionar como um <code>Result</code>.
+Podemos imaginar como se fosse levantar um erro a partir de um <code>Option</code>.
+Para isso podemos usar o método <code>ok_or</code> passando por parâmetro o erro que será gerado.
+Logo em seguida é possível usarmos o caracteres <code>?</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Retorna versão atualizada a partir do base do siger.ini
+fn versao_from_siger_ini(siger_ini: &amp;PathLocal) -&gt; anyhow::Result&lt;VersaoSig&gt; {
+    let ini = Ini::load_from_file(siger_ini)?;
+    let mut versao = ini
+        .get_from(Some(&quot;SIGER&quot;), &quot;VS-FUNATU&quot;)
+        .ok_or(anyhow!(&quot;Não foi encontrada versão do cliente no {:?}!&quot;, siger_ini))?;
+    let versao = VersaoSig::try_from(versao)?;
+    Ok(versao)
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="convertendo-result-para-option"><a class="header" href="#convertendo-result-para-option">Convertendo <code>Result</code> para <code>Option</code></a></h2>
+<p>O contrário também pode ocorrer, quando temos um <code>Result</code> e
+pretendemos transformar para <code>Option</code>. Para isso existe o método <code>ok</code> que
+que retorna <code>Some(T)</code> se o Result for <code>Ok(T)</code> e retorna <code>None</code>
+para qualquer tipo de erro,</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let siger_ini = PathBuf::from(&quot;../USR/SIGER.ini&quot;);
+let versao = versao_from_siger_ini(&amp;siger_ini)
+    .ok()
+    .unwrap_or(VersaoSig::des());
+<span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="tratamento_de_erro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="exercícios.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="tratamento_de_erro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="exercícios.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

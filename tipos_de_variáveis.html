@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Tipos de variáveis - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html" class="active"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="declarar-variável"><a class="header" href="#declarar-variável">Declarar variável</a></h3>
+<p>Para declarar uma variável usamos o comando <code>let</code>. O sinal de <code>=</code> faz a atribuição do valor inicial.</p>
+<p>O comando <code>println!</code> permite exibir o conteúdo fazendo substituição das chaves no texto.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let i = 1;
+println!(&quot;i = {}&quot;, i);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="interpolação"><a class="header" href="#interpolação">Interpolação</a></h3>
+<p>Como já foi explicado, Rust vem com uma biblioteca padrão bem reduzida.
+Para permitir interpolação devemos inserir o <code>ifmt</code> no <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[dependencies]
+ifmt = &quot;0.3.3&quot;
+</code></pre>
+<p>Essa dependência inclui o comando <code>iprintln!</code> entre outros.
+Para fazer o <code>import</code> dessa biblioteca basta pressionar <code>ctrl + .</code> em cima da palavra <code>iprintln!</code> e selecionar no menu <code>Import ifmt::iprintln</code>. Será inserida linha <code>use ifmt::iformat;</code> no topo do fonte.</p>
+<p>Então agora podemos fazer:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let i = 1;
+iprintln!(&quot;i = {i}&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esse recurso é extremamente poderoso, pois a interpolação é resolvida em tempo de compilação,
+então mesmo estando dentro de uma <code>string</code> o compilador avisará se a variável não existir.
+Também podem ser usadas funções com interpolação.</p>
+<h3 id="tipo-explícito"><a class="header" href="#tipo-explícito">Tipo explícito</a></h3>
+<p>Observe que no exemplo acima não definimos o tipo da variável.</p>
+<p>O tipo acabou sendo inferido implicitamente, ou seja, o compilador utilizou o tipo do valor que está sendo associado.</p>
+<p>A inferência de tipo do Rust é uma das suas principais característica. Muitas vezes temos a impressão que estamos trabalhando numa linguagem dinamicamente tipada.</p>
+<p>Podemos explicitar o tipo, por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let i: i32 = 1;
+println!(&quot;i = {}&quot;, i);
+<span class="boring">}
+</span></code></pre></pre>
+<p>O <code>i32</code> define uma variável numérica inteira de 32 bits.</p>
+<p>A linha acima pode declarar como <code>let i = 1;</code>.</p>
+<p>A seguir vamos ver outros tipos inteiros.</p>
+<h3 id="tipos-numéricos-inteiros"><a class="header" href="#tipos-numéricos-inteiros">Tipos numéricos inteiros</a></h3>
+<p>Rust permite inteiros com sinal ou sem sinal, e também com diferente comprimentos:</p>
+<table><thead><tr><th>Length</th><th>Signed</th><th>Unsigned</th></tr></thead><tbody>
+<tr><td>8-bit</td><td><code>i8</code></td><td><code>u8</code></td></tr>
+<tr><td>16-bit</td><td><code>i16</code></td><td><code>u16</code></td></tr>
+<tr><td>32-bit</td><td><code>i32</code></td><td><code>u32</code></td></tr>
+<tr><td>64-bit</td><td><code>i64</code></td><td><code>u64</code></td></tr>
+<tr><td>128-bit</td><td><code>i128</code></td><td><code>u128</code></td></tr>
+<tr><td>arch</td><td><code>isize</code></td><td><code>usize</code></td></tr>
+</tbody></table>
+<h3 id="atribuição-de-variáveis"><a class="header" href="#atribuição-de-variáveis">Atribuição de variáveis</a></h3>
+<p>Rust traz o moderno conceito sobre imutabilidade, onde por padrão as variáveis não podem ser alteradas depois que seu valor inicial foi definido.</p>
+<p>Para permitir a variável ser alteradas devemos informar a palavra <code>mut</code> após o <code>let</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let mut i = 0;
+println!(&quot;i = {}&quot;, i);
+i = 1;
+println!(&quot;i = {}&quot;, i);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="constantes"><a class="header" href="#constantes">Constantes</a></h3>
+<p>Para definir constante utilizamos a palavra <code>const</code> e termos que definir o tipo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>const MAX_VALUE: u32 = 100;
+let i = MAX_VALUE;
+println!(&quot;max value = {}&quot;, i);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observações:</p>
+<p>Inicialmente pode parecer que <code>let</code> sem <code>mut</code> funciona como <code>const</code>, mas são diferente.
+As variáveis imutáveis, por mais que não possamos alterar, acabam alocando memória, diferente
+das constantes, que são expressas em tempo de compilação.</p>
+<h3 id="operações-aritméticas"><a class="header" href="#operações-aritméticas">Operações aritméticas</a></h3>
+<p>As operações aritméticas são iguais a outras linguagens. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let mut i = 0;
+println!(&quot;{}&quot;, i);
+i = 2 + 5;
+println!(&quot;{}&quot;, i);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para incrementar variáveis podemos utilizar <code>+=</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let mut i = 0;
+i += 1;
+println!(&quot;i = {}&quot;, f);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="tipos-pontos-flutuante"><a class="header" href="#tipos-pontos-flutuante">Tipos pontos flutuante</a></h3>
+<p>Existem os tipos <code>f32</code> e <code>f64</code>. Para indicar um número como ponto flutuante devemos informar o ponto decimal:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let f = 1.0;
+println!(&quot;f = {}&quot;, f);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="type-cast"><a class="header" href="#type-cast">Type cast</a></h3>
+<p>Conversões <em>type conversion</em> (<em>casting</em>) podem ser feitas pela palavra <code>as</code>:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let decimal = 65.4321_f32;
+
+    // Error! No implicit conversion
+    let integer: u8 = decimal;
+    // FIXME ^ Comment out this line
+
+    // Explicit conversion
+    let integer = decimal as u8;
+    let character = integer as char;
+</code></pre></pre>
+<h3 id="tipo-boolean"><a class="header" href="#tipo-boolean">Tipo <em>boolean</em></a></h3>
+<p>Tipos lógicos <code>bool</code> possuem o valor <code>false</code> e <code>true</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let result = false;
+println!(&quot;result = {}&quot;, result);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="operações-lógicas"><a class="header" href="#operações-lógicas">Operações lógicas</a></h3>
+<p>As operações lógicas também são iguais a outras linguagens. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let mut result = false;
+println!(&quot;{}&quot;, result);
+result = result == true;
+println!(&quot;{}&quot;, result);
+result = result || true;
+println!(&quot;{}&quot;, result);
+result = result &amp;&amp; true;
+println!(&quot;{}&quot;, result);
+result = result != true;
+println!(&quot;{}&quot;, result);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="vetor-array"><a class="header" href="#vetor-array">Vetor (<em>Array</em>)</a></h3>
+<p>O tipo <em>array</em> é semelhante a outras linguagens, os caracteres <code>[]</code>
+indicam que se trata de vetor e os elementos são delimitados por vírgula:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let a = [1, 2, 3, 4, 5];
+println!(&quot;a = {:?}&quot;, a);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Observe que no <code>println!</code> usamos a substituição <code>{:?}</code> ao invés de <code>{}</code>.
+Isso por que o vetor não implementa a interface <code>Display</code>,
+que seria equivalente ao Java a um objeto sobre-escrever o método <code>toString</code>.
+Veremos mais detalhes disso em outro capítulo.</p>
+<p>A tipagem explícita é <code>[T; n]</code>, onde <code>T</code> é tipo e <code>n</code> é o tamanho:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let a: [i32; 5] = [1, 2, 3, 4, 5];
+println!(&quot;a = {:?}&quot;, a);
+<span class="boring">}
+</span></code></pre></pre>
+<p><em>array</em> é um vetor estático, ou seja, não podemos alterá-lo.
+Para alterar existe outra estrutura de dados chamada <code>Vec</code> (que veremos em outro capítulo).
+Semelhante como no Java, onde existe <em>array</em> e <code>ArrayList</code>.</p>
+<h3 id="tipo-range"><a class="header" href="#tipo-range">Tipo <em>range</em></a></h3>
+<p>Para representar um <em>range</em> (faixa) devemos usar a notação <em>início..fim</em>, sendo que o fim não é incluído.
+Ou seja, 1 a 10 é representado com <code>1..11</code>. Essa característica existe para facilitar percorrer vetor onde o tamanho é indicado no fim, tal como <code>0..lista.len()</code>. Se quer que o fim seja incluído, deve usar o sinal de <code>=</code>, por exemplo <code>1..=10</code>.</p>
+<p>Exemplos:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let r = 0..10;
+
+let a = 9;
+let b = 10;
+let f = a..b;
+<span class="boring">}
+</span></code></pre></pre>
+<p>O <em>range</em> também é utilizado para trabalhar com <em>slice</em> (fatia) de vetor. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let arr = [0, 1, 2, 3, 4];
+assert_eq!(arr[ ..  ], [0,1,2,3,4]);
+assert_eq!(arr[ .. 3], [0,1,2    ]);
+assert_eq!(arr[ ..=3], [0,1,2,3  ]);
+assert_eq!(arr[1..  ], [  1,2,3,4]);
+assert_eq!(arr[1.. 3], [  1,2    ]);
+assert_eq!(arr[1..=3], [  1,2,3  ]);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Em outro capítulo veremos que podemos usar <em>ranges</em> no comando <code>for</code>.</p>
+<h3 id="tipo-tupla"><a class="header" href="#tipo-tupla">Tipo tupla</a></h3>
+<p>As tuplas são coleções de tipos diferentes, construídas no formato <code>(T1, T2, T3, ...)</code>.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let t = (1u32, false);
+println!(&quot;{:?}&quot;, t);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Podemos fazer a desconstrução das tuplas pela sintaxe <code>let (a, b, ...) =</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let t = (1u32, false);
+let (i, b) = t;
+println!(&quot;{} {}&quot;, i, b);
+<span class="boring">}
+</span></code></pre></pre>
+<p>É possível acessarmos os valores através do índice pela sintaxe <code>.i</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let t = (1u32, false);
+println!(&quot;{} {}&quot;, t.0, t.1);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="variável-place-holder"><a class="header" href="#variável-place-holder">Variável <em>place holder</em></a></h3>
+<p>Em algumas situações queremos ignorar parte de uma tupla, porém por padrão o compilar
+emite alerta se uma variável não for utilizada.
+Podemos imaginar o <em>place holder</em> como sendo o <code>filler</code> do COBOL,
+serve apenas preencher uma necessidade do compilador.
+Exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let t = (1u32, false);
+let (i, _) = t;
+println!(&quot;{}&quot;, i);
+<span class="boring">}
+</span></code></pre></pre>
+<p>As varáveis <code>foo</code> na verdade podem até ter nome, iniciando com underscore, tal como <code>_status</code>.</p>
+<h3 id="tipo-caractere"><a class="header" href="#tipo-caractere">Tipo caractere</a></h3>
+<p>Tipos <code>char</code> são definidos com aspas simples:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let c = '*';
+println!(&quot;c = {}&quot;, c);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="tipo-texto"><a class="header" href="#tipo-texto">Tipo texto</a></h3>
+<p>Existem dois tipos de String: <code>String</code> e <code>&amp;str</code>, que possuem as seguintes diferenças:</p>
+<ul>
+<li><code>String</code> é uma <em>string</em> dinâmica alocada na memória <em>heap</em>, podendo aumentar de tamanho.</li>
+<li><code>&amp;str</code> é uma referência em algum lugar na memória (<em>heap</em> ou <em>stack</em>) de uma cadeia de caracteres, não pode mudar de tamanho. Também pode ser chamado de <em>slice</em>.</li>
+</ul>
+<p>Para facilitar entendimento, podemos fazer um comparativo ao Java, com os tipos <code>String</code> e <code>StringBuilder</code>.</p>
+<p>Quando declaramos uma literal é assumido o tipo <code>&amp;str</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s = &quot;Rech Informática&quot;;
+println!(&quot;s = {}&quot;, s);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Vamos ver um exemplo do tipo <code>String</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s = String::from(&quot;Rech Informática&quot;);
+println!(&quot;s = {}&quot;, s);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Nesse exemplo já vemos mais algumas características do Rust. Os dois sinais de <code>:</code> significa que é delimitador de uma função estática da classe.
+No caso <code>from</code> é um construtor da classe.
+Um ponto <code>.</code> significa um delimitador de método dinâmico.</p>
+<p>Podemos converter um <em>slice String</em> <code>&amp;str</code> para <code>String</code> através do método <code>to_string</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let hello = &quot;Hello&quot;.to_string();
+println!(&quot;hello = {}&quot;, hello);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Podemos converter uma <code>String</code> para <code>&amp;str</code>, definindo o caractere <code>&amp;</code> antes do String, que funciona como uma referência:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s: &amp;str = &amp;String::from(&quot;Rech Informática&quot;);
+println!(&quot;s = {}&quot;, s);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Por causa disso para definirmos funções geralmente utilizaremos o <code>&amp;str</code> como tipo de parâmetros, por ser mais compatível e permitir literais.</p>
+<blockquote>
+<p>É natural haver uma dificuldade inicial para lidar e entender os dois tipos de <em>String</em>,
+mas como foi dito no capítulo de introdução: se compilar então você está fazendo certo,
+você não terá erros ou comportamentos inesperados.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="hello_world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="trabalhando_com_strings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="hello_world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="trabalhando_com_strings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

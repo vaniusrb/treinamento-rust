@@ -1,0 +1,656 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ownership e borrowing - Treinamento Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="treinamento.html"><strong aria-hidden="true">1.</strong> Treinamento</a></li><li class="chapter-item expanded "><a href="instalação.html"><strong aria-hidden="true">2.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introdução.html"><strong aria-hidden="true">3.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">4.</strong> Hello word</a></li><li class="chapter-item expanded "><a href="tipos_de_variáveis.html"><strong aria-hidden="true">5.</strong> Tipos de variáveis</a></li><li class="chapter-item expanded "><a href="trabalhando_com_strings.html"><strong aria-hidden="true">6.</strong> Trabalhando com Strings</a></li><li class="chapter-item expanded "><a href="funções,_testes_unitários_e_doc.html"><strong aria-hidden="true">7.</strong> Funções, testes unitários e doc</a></li><li class="chapter-item expanded "><a href="controle_de_fluxo.html"><strong aria-hidden="true">8.</strong> Controle de fluxo (if, while, for)</a></li><li class="chapter-item expanded "><a href="declarar_objetos.html"><strong aria-hidden="true">9.</strong> Declarar objetos</a></li><li class="chapter-item expanded "><a href="enumerados.html"><strong aria-hidden="true">10.</strong> Enumerados</a></li><li class="chapter-item expanded "><a href="ownership_e_borrowing.html" class="active"><strong aria-hidden="true">11.</strong> Ownership e borrowing</a></li><li class="chapter-item expanded "><a href="collections_e_iterators.html"><strong aria-hidden="true">12.</strong> Collections e Iterators</a></li><li class="chapter-item expanded "><a href="option.html"><strong aria-hidden="true">13.</strong> Option (opcional)</a></li><li class="chapter-item expanded "><a href="tratamento_de_erro.html"><strong aria-hidden="true">14.</strong> Tratamento de erro</a></li><li class="chapter-item expanded "><a href="trabalhando_com_result.html"><strong aria-hidden="true">15.</strong> Trabalhando com Result</a></li><li class="chapter-item expanded "><a href="exercícios.html"><strong aria-hidden="true">16.</strong> Exercícios</a></li><li class="chapter-item expanded "><a href="CLI_structopt.html"><strong aria-hidden="true">17.</strong> CLI structopt</a></li><li class="chapter-item expanded "><a href="manipular_json.html"><strong aria-hidden="true">18.</strong> Manipulação JSON</a></li><li class="chapter-item expanded "><a href="arquivos.html"><strong aria-hidden="true">19.</strong> Leitura e gravação de arquivos</a></li><li class="chapter-item expanded "><a href="date_time.html"><strong aria-hidden="true">20.</strong> Date time</a></li><li class="chapter-item expanded "><a href="smart_pointers.html"><strong aria-hidden="true">21.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="threads.html"><strong aria-hidden="true">22.</strong> Threads</a></li><li class="chapter-item expanded "><a href="sintaxe_async.html"><strong aria-hidden="true">23.</strong> Sintaxe async</a></li><li class="chapter-item expanded "><a href="sqlx.html"><strong aria-hidden="true">24.</strong> SQLx (acesso BD)</a></li><li class="chapter-item expanded "><a href="traits.html"><strong aria-hidden="true">25.</strong> Traits (interfaces)</a></li><li class="chapter-item expanded "><a href="closures.html"><strong aria-hidden="true">26.</strong> Closures</a></li><li class="chapter-item expanded "><a href="estrutura_de_diretórios.html"><strong aria-hidden="true">27.</strong> Estrutura de diretórios</a></li><li class="chapter-item expanded "><a href="clonar_structs.html"><strong aria-hidden="true">28.</strong> Clonar structs</a></li><li class="chapter-item expanded "><a href="api_design.html"><strong aria-hidden="true">29.</strong> API design</a></li><li class="chapter-item expanded "><a href="debug.html"><strong aria-hidden="true">30.</strong> Debug</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Treinamento Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="introdução-sobre-ownership-e-borrowing"><a class="header" href="#introdução-sobre-ownership-e-borrowing">Introdução sobre <em>Ownership</em> e <em>Borrowing</em></a></h2>
+<blockquote>
+<p>Rust ser uma linguagem <strong>sem <em>Garbage Collector</em></strong> e <strong>evitar problemas com referências</strong> são incríveis feitos.
+Para permitir isso foi necessário incluir na linguagem alguns conceitos que não existem em outras.
+Então é comum termos alguma dificuldade, mas depois que entendemos passamos a ficar mais fluente e mais produtivo na linguagem.</p>
+</blockquote>
+<p>Primeiramente iremos falar sobre conceitos.</p>
+<h3 id="tempo-de-validade-das-variáveis"><a class="header" href="#tempo-de-validade-das-variáveis">Tempo de validade das variáveis</a></h3>
+<p>As variáveis possuem seu tempo de vida válido dentro do escopo onde são definidas.
+Geralmente o escopo vale para um bloco delimitado por <code>{}</code>:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    {                      // s is not valid here, it’s not yet declared
+        let s = &quot;hello&quot;;   // s is valid from this point forward
+
+        // do stuff with s
+    }                      // this scope is now over, and s is no longer valid
+    println!(&quot;bye&quot;);
+}
+</code></pre></pre>
+<p>Quando termina o escopo onde a variável está declarada ocorre o <code>drop</code>, a variável é desalocada.</p>
+<h3 id="diferença-entre-sintaxe-e-semântica"><a class="header" href="#diferença-entre-sintaxe-e-semântica">Diferença entre sintaxe e semântica</a></h3>
+<p>Cada linguagens obedece as suas regras de sintaxe e semântica.
+O exemplo Java abaixo possui sintaxe correta e semântica também correta:</p>
+<pre><code class="language-java">var a = 1;
+var b = 2;
+var c = a + b;
+</code></pre>
+<p>Porém o seguinte exemplo possui sintaxe correta mas a semântica está errada:</p>
+<pre><code class="language-java">var a = 1;
+var b = false;
+var c = a + b;
+</code></pre>
+<p>Este outro exemplo possui a mesma sintaxe do primeiro exemplo,
+mas pela semântica faz algo totalmente diferente do primeiro exemplo
+(concatena texto, não soma):</p>
+<pre><code class="language-java">var a = &quot;Hello &quot;;
+var b = &quot;World&quot;;
+var c = a + b;
+</code></pre>
+<p>A sintaxe olha para regra de símbolos e identificadores, a semântica olha para o tipo das variável e resulta num comportamento diferente.
+Quando ouvirem falar de &quot;semântica&quot; tentem associar que o comportamento vai depender do tipo da variável ou do contexto.</p>
+<h3 id="variáveis-reference-e-variáveis-value"><a class="header" href="#variáveis-reference-e-variáveis-value">Variáveis <code>reference</code> e variáveis <code>value</code></a></h3>
+<p>Vamos recapitular um conceito utilizado em muitas linguagens,
+que são sobre variáveis <em>reference</em> e variáveis <em>value</em>. Para entendermos ver um exemplo em Java, que estamos mais familiarizados:</p>
+<pre><code class="language-java">import java.util.ArrayList;
+import java.util.List;
+
+public class MyClass {
+
+    public static void main(String args[]) {
+        int x = 10;
+        int y = x;
+        System.out.println(&quot;x = &quot; + x);
+        System.out.println(&quot;y = &quot; + y);
+
+        int y = 0;
+        System.out.println(&quot;x = &quot; + x);
+        System.out.println(&quot;y = &quot; + y);
+    }
+}
+</code></pre>
+<p>Na linha <code>int y = x</code> ocorre a semântica <code>copy</code>, onde valor da variável é copiado para outra variável.
+Em Java variáveis primitivas não possuem referência,
+o sinal de atribuição sempre faz a copia o valor - cada variável aponta para um valor de área de memória diferente.</p>
+<p>Porém o exemplo abaixo ocorre algo diferente:</p>
+<pre><code class="language-java">import java.util.ArrayList;
+import java.util.List;
+
+public class MyClass {
+    public static void main(String args[]) {
+        var l1 = new ArrayList&lt;Integer&gt;(List.of(0, 1, 2, 3));
+        var l2 = l1;
+        System.out.println(&quot;l1 = &quot; + l1.toString());
+        System.out.println(&quot;l2 = &quot; + l2.toString());
+
+        l2.clear();
+        System.out.println(&quot;l1 = &quot; + l1.toString());
+        System.out.println(&quot;l2 = &quot; + l2.toString());
+    }
+}
+</code></pre>
+<p>Na linha <code>var l2 = l1</code> faz que as duas varáveis referenciem o mesmo valor sem ocorrer o <code>copy</code>.
+Java permite que duas variáveis sejam donas do mesmo valor,
+é papel do <em>GC</em> ficar controlando que as duas variáveis sairão de contexto para poder dropar o valor.</p>
+<blockquote>
+<p>Observe que é comum de iniciantes da programação terem dificuldade para entender
+o conceito de referência, por exemplo, acharem que podemos copiar uma nova lista fazendo <code>ArrayList l2 = l1</code>.</p>
+</blockquote>
+<p>No Java não há nenhum alerta, mas a linha <code>l2.clear()</code> faz algo muito perigoso,
+pois a lista é inicializada enquanto existe outra variável l1 referenciando o mesmo objeto.</p>
+<h3 id="ownership-e-a-semântica-move"><a class="header" href="#ownership-e-a-semântica-move"><em>Ownership</em> e a semântica <em>move</em></a></h3>
+<p>Para evitar o tipo de problema acima, Rust introduz o conceito e <em>Ownership</em>.</p>
+<p>Podemos ter mais de uma variável apontando para um valor,
+mas somente uma dessas variáveis deve ser a dona (<em>owner</em>).</p>
+<blockquote>
+<p>Quando um valor troca de dono dizemos que ocorreu um <em>move</em>.</p>
+</blockquote>
+<p>Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;Hello&quot;);
+let s2 = s1;
+println!(&quot;{}&quot;, s2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Quando fizemos a atribuição <code>let s2 = s1</code> ocorreu o <em>move</em> do valor de <code>s1</code> para <code>s2</code>,
+ou seja, <code>s2</code> passou a ser <em>owner</em>.
+A partir desse momento não podemos mais acessar a variável <code>s1</code>.</p>
+<p>Então exemplo abaixo ocorre erro de compilação:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;Hello&quot;);
+let s2 = s1;
+println!(&quot;{}&quot;, s1); // &lt;== Ocorre erro aqui!
+println!(&quot;{}&quot;, s2);
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="borrowing-referência"><a class="header" href="#borrowing-referência"><em>Borrowing</em> (referência)</a></h2>
+<p>No exemplo acima podemos resolver o problema de compilação fazendo <code>s2</code>
+pegar &quot;emprestado&quot; (<em>borrowing</em>) a referência ao <code>s1</code>, através do caracteres <code>&amp;</code>. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;Hello&quot;);
+let s2 = &amp;s1;
+println!(&quot;{}&quot;, s1);
+println!(&quot;{}&quot;, s2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Nesse caso tanto <code>s1</code> quanto <code>s2</code> apontam para o mesmo valor <code>Hello</code>, porém s1 que é o <em>owner</em>.</p>
+<blockquote>
+<p>O tempo de vida do valor é determinado pelo escopo da variável <em>owner</em>, não das referências.</p>
+</blockquote>
+<h2 id="semântica-copy"><a class="header" href="#semântica-copy">Semântica <em>copy</em></a></h2>
+<p>Vamos ver outro exemplo em Rust:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 10;
+    let y = x;
+    println!(&quot;x = {}&quot;, x);
+    println!(&quot;y = {}&quot;, y);
+}
+</code></pre></pre>
+<p>Na linha <code>let y = x</code> na verdade y está dizendo &quot;quero ser dono do valor 10&quot;, que já tem x como dono.
+Mas isso violaria a regra &quot;somente pode haver um <em>owner</em> por vez&quot;. Para tentar resolver a situação
+o compilador verifica se a variável implementa a <em>trait</em> (interface) <code>Copy</code>.
+Se sim, então ocorre uma clonagem implícita do valor para a outra variável,
+então agora cada variável referencia um valor diferente.
+No Rust tipos &quot;primitivos&quot; implementam o <code>Copy</code>, diferente de quanto usamos <em>String</em>, o caso acima compila.</p>
+<blockquote>
+<p>Para facilitar o entendimento vamos fazer uma analogia o Java, onde valores primitivos não possuem referência, sempre são <em>by value</em>.</p>
+</blockquote>
+<p>Mas diferente do Java onde somente tipos primitivos usam a semântica copy, em Rust nós podemos implementar a interface <code>Copy</code> para tipos nossos.</p>
+<blockquote>
+<p>Em resumo, em Rust para alguns tipos não ocorrerá erros de compilação se não usar o &amp;, mas implicitamente estará fazendo <em>copy</em> do valor.</p>
+</blockquote>
+<h2 id="borrow-checker"><a class="header" href="#borrow-checker"><em>Borrow checker</em></a></h2>
+<blockquote>
+<p>Esta são as regras do <em>borrow checker</em>:</p>
+<ul>
+<li>Somente pode haver um <em>owner</em> por vez</li>
+<li>Quando o <em>owner</em> sai de escopo, seu valor é <em>dropped</em> (dropado)</li>
+<li>Para um valor ser dropado não pode existir nenhum <em>borrowing</em> vivo no escopo</li>
+</ul>
+</blockquote>
+<p>Devemos ter em mente que quando declaramos variável ou parâmetro <em>Owned</em> é como se estivéssemos no apropriando do valor, ou seja,
+talvez até consumindo o valor de outra variável.</p>
+<p>Um exemplo que provoca o valor ser movido e causa erro de compilação:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;hello&quot;);
+    say_word(s1);
+    println!(&quot;s1 = {}&quot;, s1);
+}
+
+fn say_word(word: String) {
+    println!(&quot;{}&quot;, word);
+}
+</code></pre></pre>
+<p>Da forma que o parâmetro da função foi declarado, a variável acaba sendo movida e
+não pode ser acessada depois de chamar a função. Para resolvermos isso podemos fazer <em>borrowing</em>,
+declarar a função com parâmetro <code>s: &amp;String</code> e passar a variável com <code>&amp;s1</code>:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;hello&quot;);
+    say_word(&amp;s1);
+    println!(&quot;s1 = {}&quot;, s1);
+}
+
+fn say_word(word: &amp;String) {
+    println!(&quot;{}&quot;, word);
+}
+</code></pre></pre>
+<p>Não há necessidade da função <code>say_word</code> &quot;consumir&quot; o parâmetro, ele pode receber uma referência.</p>
+<p>Quando fazemos um <code>for i in lista</code> por baixo dos panos é criado um <em>iterator</em> que acaba consumindo os elementos.
+Então se fizermos o laço duas vezes ocorre erro de compilação:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut lista = Vec::new();
+lista.push(1);
+lista.push(2);
+lista.push(3);
+
+println!(&quot;Lista 1&quot;);
+for i in lista {
+    println!(&quot;{:?}&quot;, i);
+}
+println!(&quot;Lista 2&quot;);
+for i in lista {  // &lt;=== erro aqui! o valor foi movido no primeiro laço
+    println!(&quot;{:?}&quot;, i);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para resolver basta fazermos o laço com <code>&amp;lista</code> ou chamar <code>lista.iter()</code> (que já acessa retorna os elementos por referência)</p>
+<p>===&gt; Criar exemplo que insere entre duas listas</p>
+<p>Muitas vezes acessaremos variáveis por referência, que como sabemos deve existir</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto_out = String::from(&quot;hello&quot;);
+    let mut textos = Vec::with_capacity(2);
+    textos.push(&amp;texto_out);
+    {
+        let texto_in = String::from(&quot;hello&quot;);
+        textos.push(&amp;texto_in);
+    }
+    println!(&quot;{:?}&quot;, textos);
+}
+</code></pre></pre>
+<h2 id="clonagem-copy-explícito"><a class="header" href="#clonagem-copy-explícito">Clonagem (<em>copy</em> explícito)</a></h2>
+<p>A operação de <code>clone</code> é semelhante o <code>copy</code>, que cria uma nova variável, duplicando seu valor.
+Porém o <code>copy</code> é chamado implicitamente pelo compilador para variáveis que implementam a interface <code>Copy</code>,
+no caso <code>clone</code> deve chamado pelo programador.
+Para tipos de tamanho variável podemos usar o <code>clone</code>.</p>
+<p>Clonagem é um artíficio que podemos usar para satisfazer a regra de referências.</p>
+<p>Vamos voltar a um dos exemplos que não compila.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;hello&quot;);
+let s2 = s1;
+println!(&quot;s1 = {}&quot;, s1);
+println!(&quot;s2 = {}&quot;, s2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Podemos fazer compilar com <code>s1.clone()</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;hello&quot;);
+let s2 = s1.clone();
+println!(&quot;s1 = {}&quot;, s1);
+println!(&quot;s2 = {}&quot;, s2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Outro exemplo que não compila:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;Hello&quot;);
+    say_word(s1); // &lt;- ocorre o move aqui
+    // não posso acessar s1
+}
+
+fn say_word(word: String) {
+    println!(&quot;{}&quot;, word);
+    // word sofre drop
+}
+</code></pre></pre>
+<p>Para ajustarmos:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;Hello&quot;);
+    say_word(s1.clone()); // &lt;- ocorre o move aqui
+    // posso acessar s1
+}
+
+fn say_word(word: String) {
+    println!(&quot;{}&quot;, word);
+    // word sofre drop
+}
+</code></pre></pre>
+<p>Nos dois exemplos, mesmo passando parâmetros <em>owned</em>, a variável continua válida no contexto pois acabamos movendo um valor clonado.</p>
+<h3 id="observações-sobre-ownership-e-borrowing"><a class="header" href="#observações-sobre-ownership-e-borrowing">Observações sobre <em>Ownership</em> e <em>Borrowing</em></a></h3>
+<p>Estes são conceitos novos que não existem em outras linguagens, então é normal demorarmos
+para assimilar. Porém é graças a este conceito que Rust proporciona uma grande robustez e
+performance.</p>
+<p>É comum termos que decidir se nossas funções terão parâmetros <em>Owned</em> ou <em>Borrowed</em>.
+Para tomarmos esse tipo de decisão podemos pensar no conceito de <em>Ownership</em> como ser fosse um conceito de <strong>fluxo de dados</strong>,
+por exemplo: a variável que estamos declarando desejamos passar a diante
+para a outra rotina (passar <em>Owned</em>) para ser &quot;consumida&quot; ou deve &quot;ir e voltar&quot; (passar <em>Borrowed</em>).</p>
+<p>Este é um <em>mindset</em> que com o tempo iremos adquirir de forma natural.</p>
+<p>Vamos ver o exemplo abaixo:</p>
+<pre><pre class="playground"><code class="language-rust">struct User {
+    id: u32,
+    name: String,
+}
+
+fn current_name() -&gt; String {
+    String::from(&quot;USERNAME&quot;)
+}
+
+fn create_user(user_name: String) -&gt; User {
+    User {
+        id: 1,
+        name: user_name,
+    }
+}
+
+fn main() {
+    let current_user = current_name();
+    let user = create_user(current_user);
+    println!(&quot;Hello, {}-{}!&quot;, user.id, user.name);
+}
+</code></pre></pre>
+<p>A <em>string</em> <code>USERNAME</code> foi trocando de escopo sem ocorrer nenhuma cópia do valor.
+Como a função <code>create_user</code> precisa &quot;consumir&quot; o nome para devolver como campo do objeto <code>User</code>
+então faz sentido o parâmetro ser <em>owned</em>.</p>
+<blockquote>
+<p>A grande vantagem do Rust é que compilador dá dicas de quando estamos confundindo entre <em>Owned</em> ou <em>Borrowed</em>,
+<strong>podemos ir arriscando que o compilador vai nos guiando</strong>, não teremos nenhum <em>NullPointerException</em> ou <em>AccessViolation</em>.</p>
+</blockquote>
+<h3 id="referências-mutáveis"><a class="header" href="#referências-mutáveis">Referências mutáveis</a></h3>
+<p>Se queremos ter uma função que altera o conteúdo da variável por referência
+devemos utilizar o modificador <code>&amp;mut T</code> tanto na passagem de parâmetro quanto na declaração da função:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut s = String::from(&quot;hello&quot;);
+    change(&amp;mut s);
+}
+
+fn change(some_string: &amp;mut String) {
+    some_string.push_str(&quot;, world&quot;);
+}
+</code></pre></pre>
+<h3 id="regras-de-ownership-e-borrow-checker"><a class="header" href="#regras-de-ownership-e-borrow-checker">Regras de ownership e borrow checker</a></h3>
+<ul>
+<li>Para uma variável ser movida (trocar <em>owned</em>) não pode existir nenhuma outra referência</li>
+<li>A referência não pode viver mais do que a variável <em>owned</em></li>
+<li>Só é possível ter uma referência mutável de cada vez</li>
+<li>Para haver uma referência mutável não pode existir nenhuma outra referência</li>
+</ul>
+<p>Vamos ver o exemplo que viola a regra &quot;só é possível ter uma referência mutável de cada vez&quot;:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>    let mut s = String::from(&quot;hello&quot;);
+
+    let r1 = &amp;mut s;
+    let r2 = &amp;mut s;
+
+    println!(&quot;{}, {}&quot;, r1, r2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>A vantagem de ter essa restrição é que o Rust pode evitar disputas de dados em tempo de compilação.
+Uma corrida de dados é semelhante a uma condição de corrida e acontece quando esses três comportamentos ocorrem:</p>
+<ul>
+<li>Dois ou mais ponteiros acessam os mesmos dados ao mesmo tempo.</li>
+<li>Pelo menos um dos ponteiros está sendo usado para gravar os dados.</li>
+<li>Nenhum mecanismo está sendo usado para sincronizar o acesso aos dados.</li>
+</ul>
+<p>Ajustando o código abaixo ele compila:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>    let mut s = String::from(&quot;hello&quot;);
+
+    {
+        let r1 = &amp;mut s;
+    } // r1 goes out of scope here, so we can make a new reference with no problems.
+
+    let r2 = &amp;mut s;
+
+    println!(&quot;{}&quot;, r2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>O exemplo acima foi resolvido pois agora possuem tempo de vida e escopo diferentes.</p>
+<p>Vamos ver um exemplo que viola a regra &quot;não podemos ter uma referência mutável se já existem alguma outra não mutável&quot;:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>    let mut s = String::from(&quot;hello&quot;);
+
+    let r1 = &amp;s; // no problem
+    let r2 = &amp;s; // no problem
+    let r3 = &amp;mut s; // BIG PROBLEM
+
+    println!(&quot;{}, {}, and {}&quot;, r1, r2, r3);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Porém podemos resolver esse problema apenas alterando a ordem de declaração e uso:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>    let mut s = String::from(&quot;hello&quot;);
+
+    let r1 = &amp;s; // no problem
+    let r2 = &amp;s; // no problem
+    println!(&quot;{} and {}&quot;, r1, r2);
+    // r1 and r2 are no longer used after this point
+
+    let r3 = &amp;mut s; // no problem
+    println!(&quot;{}&quot;, r3);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Então o escopo da variável na verdade vale até o seu uso.</p>
+<h2 id="compatibilidade-de-tipos-e-de-referência"><a class="header" href="#compatibilidade-de-tipos-e-de-referência">Compatibilidade de tipos e de-referência</a></h2>
+<p>Como podemos deduzir os tipos <code>T</code> e <code>&amp;T</code> não são compatíveis, ou seja,
+não é possível atribuir ou comparar entre esses dois tipos.
+Se tenho uma parâmetro <code>&amp;T</code> mas tenho uma variável <code>T</code> então basta informar o caractere <code>&amp;</code> antes da variável.</p>
+<p>Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;hello&quot;);
+    let s2 = &amp;s1;
+    if s1 == s2 {
+        println!(&quot;Equal&quot;);
+    } else {
+        println!(&quot;Not equal&quot;);
+    }
+}
+</code></pre></pre>
+<p>Ocorre um erro de compilação em <code>s1 == s2</code>. Para resolver devemos fazer:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span><span class="boring">
+</span><span class="boring">   let s1 = String::from(&quot;hello&quot;);
+</span><span class="boring">   let s2 = &amp;s1;
+</span>    if &amp;s1 == s2 {
+<span class="boring">       println!(&quot;Equal&quot;);
+</span><span class="boring">   } else {
+</span><span class="boring">       println!(&quot;Not equal&quot;);
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+<p>Para o fazer o contrário, a partir de uma variável <code>&amp;T</code> obter o valor <code>T</code>, então posso usar o caractere <code>*</code> para fazer a de-referência.
+Em geral Rust faz de-referência automaticamente, entretanto principalmente para comparações devemos utilizar:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span><span class="boring">
+</span><span class="boring">   let s1 = String::from(&quot;hello&quot;);
+</span><span class="boring">   let s2 = &amp;s1;
+</span>    if s1 == *s2 {
+<span class="boring">       println!(&quot;Equal&quot;);
+</span><span class="boring">   } else {
+</span><span class="boring">       println!(&quot;Not equal&quot;);
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="enumerados.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="collections_e_iterators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="enumerados.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="collections_e_iterators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
